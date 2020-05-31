@@ -1,0 +1,19 @@
+.root{
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	.logo {
+		margin-top: 100px;
+		text-align: center;
+		img {
+			width: 30%;
+
+			@media (max-width: 600px) {
+				width: 70%;
+			}
+		}
+	}
+}
