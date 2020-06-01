@@ -34,9 +34,10 @@ const useStyles = makeStyles(() => ({
 
 interface ISettingsList {
 	name: string;
+	push: (path: string) => void;
 }
 
-const SettingsList = ({ name }: ISettingsList) => {
+const SettingsList = ({ name, push }: ISettingsList) => {
 	const [checked, setChecked] = React.useState<number[]>([])
 	const classes = useStyles()
 
@@ -62,10 +63,12 @@ const SettingsList = ({ name }: ISettingsList) => {
 			className={styles.root}
 		>
 			{settingsList.map((setting: ISetting) => (
-				<ListItem>
+				<ListItem key={setting.id}>
 					<ListItemText
 						id={`switch-list-label-${setting.id}`}
 						primary={setting.name}
+						onClick={() => push('/Settings/Info')}
+						style={{ cursor: 'pointer' }}
 					/>
 					<ListItemSecondaryAction>
 						<IOSSWitch

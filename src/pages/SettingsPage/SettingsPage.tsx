@@ -17,25 +17,31 @@ const useStyles = makeStyles((theme) => ({
 
 interface ISettingsPage {
 	goBack: () => void;
+	push: (path: string) => void;
 }
 
 // значения пептиков сохранять в ls.
 
-const SettingsPage = ({ goBack }: ISettingsPage) => {
+const SettingsPage = ({ goBack, push }: ISettingsPage) => {
 	const classes = useStyles()
 
 	return (
 		<div className={styles.settingsPage}>
-			<Card className={classes.root} variant="elevation">
-				<div className={styles.settingsPage__header}>
-					<IconButton aria-label="back" onClick={goBack}>
-						<ArrowBackIosIcon fontSize="large" />
-					</IconButton>
-				</div>
-				<CardContent>
-					<SettingsList name="Индикаторы персонального здоровья" />
-				</CardContent>
-			</Card>
+			<div className={styles.settingsPage__header}>
+				<IconButton aria-label="back" onClick={goBack}>
+					<ArrowBackIosIcon fontSize="large" />
+				</IconButton>
+			</div>
+			<div className={styles.settingsPage__body}>
+				<Card className={classes.root} variant="elevation">
+					<CardContent>
+						<SettingsList
+							push={push}
+							name="Индикаторы персонального здоровья"
+						/>
+					</CardContent>
+				</Card>
+			</div>
 		</div>
 	)
 }
