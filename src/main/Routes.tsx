@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import MainPage from '../pages/MainPage/MainPage'
-import SettingsPage from '../pages/SettingsPage/SettingsPage'
+import SettingsPage from '../pages/SettingsPage/SettingsPageContainer'
 
 const Routes = () => {
 	return (

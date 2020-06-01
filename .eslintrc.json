@@ -47,6 +47,7 @@
         "import/prefer-default-export": "off",
         "no-unused-vars": "off",
         "@typescript-eslint/no-unused-vars": ["error"],
-        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+        "react/jsx-wrap-multilines": "off"
     }
 }
