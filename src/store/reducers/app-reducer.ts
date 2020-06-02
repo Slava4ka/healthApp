@@ -1,6 +1,6 @@
 import { ActionType, getType } from 'typesafe-actions'
 import * as actions from '../actions/app'
-import { IAppReducer } from '../types/app'
+import { IAppReducer } from '../types/app.d'
 
 const initialState: IAppReducer = {
 	isInitialized: false,
