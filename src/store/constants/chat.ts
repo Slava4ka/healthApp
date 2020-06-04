@@ -1,0 +1,4 @@
+export enum ChatTypes {
+	SEND_MESSAGE = '@@CHAT/SEND_MESSAGE',
+	PUT_MESSAGE_TO_STORE = '@@CHAT/PUT_MESSAGE_TO_STORE',
+}
