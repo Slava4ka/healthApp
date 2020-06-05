@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/https,://slava4ka.github.io/healthApp/static/css/main.adf3edf8.chunk.css",
-    "main.js": "/https,://slava4ka.github.io/healthApp/static/js/main.61f00c5e.chunk.js",
-    "main.js.map": "/https,://slava4ka.github.io/healthApp/static/js/main.61f00c5e.chunk.js.map",
-    "runtime-main.js": "/https,://slava4ka.github.io/healthApp/static/js/runtime-main.7ab2709c.js",
-    "runtime-main.js.map": "/https,://slava4ka.github.io/healthApp/static/js/runtime-main.7ab2709c.js.map",
-    "static/js/2.ca8a71c0.chunk.js": "/https,://slava4ka.github.io/healthApp/static/js/2.ca8a71c0.chunk.js",
-    "static/js/2.ca8a71c0.chunk.js.map": "/https,://slava4ka.github.io/healthApp/static/js/2.ca8a71c0.chunk.js.map",
-    "index.html": "/https,://slava4ka.github.io/healthApp/index.html",
-    "precache-manifest.0a9df45b0bf3a9d1d420142ab71d9b4e.js": "/https,://slava4ka.github.io/healthApp/precache-manifest.0a9df45b0bf3a9d1d420142ab71d9b4e.js",
-    "service-worker.js": "/https,://slava4ka.github.io/healthApp/service-worker.js",
-    "static/css/main.adf3edf8.chunk.css.map": "/https,://slava4ka.github.io/healthApp/static/css/main.adf3edf8.chunk.css.map",
-    "static/js/2.ca8a71c0.chunk.js.LICENSE.txt": "/https,://slava4ka.github.io/healthApp/static/js/2.ca8a71c0.chunk.js.LICENSE.txt"
+    "main.css": "/healthApp/static/css/main.adf3edf8.chunk.css",
+    "main.js": "/healthApp/static/js/main.87a7c012.chunk.js",
+    "main.js.map": "/healthApp/static/js/main.87a7c012.chunk.js.map",
+    "runtime-main.js": "/healthApp/static/js/runtime-main.be219943.js",
+    "runtime-main.js.map": "/healthApp/static/js/runtime-main.be219943.js.map",
+    "static/js/2.ca8a71c0.chunk.js": "/healthApp/static/js/2.ca8a71c0.chunk.js",
+    "static/js/2.ca8a71c0.chunk.js.map": "/healthApp/static/js/2.ca8a71c0.chunk.js.map",
+    "index.html": "/healthApp/index.html",
+    "precache-manifest.71b6ae2d60f026444bbd513aa2b04af0.js": "/healthApp/precache-manifest.71b6ae2d60f026444bbd513aa2b04af0.js",
+    "service-worker.js": "/healthApp/service-worker.js",
+    "static/css/main.adf3edf8.chunk.css.map": "/healthApp/static/css/main.adf3edf8.chunk.css.map",
+    "static/js/2.ca8a71c0.chunk.js.LICENSE.txt": "/healthApp/static/js/2.ca8a71c0.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.7ab2709c.js",
+    "static/js/runtime-main.be219943.js",
     "static/js/2.ca8a71c0.chunk.js",
     "static/css/main.adf3edf8.chunk.css",
-    "static/js/main.61f00c5e.chunk.js"
+    "static/js/main.87a7c012.chunk.js"
   ]
 }
