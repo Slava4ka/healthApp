@@ -6,6 +6,7 @@ import { recordMessage, sendMessage } from '../../store/actions/chat'
 const mapStateToProps = (state: RootState) => ({
 	messages: state.chat.messages,
 	userData: state.signUp.userData,
+	typing: state.chat.typing,
 })
 
 const mapDispatchToProps = {

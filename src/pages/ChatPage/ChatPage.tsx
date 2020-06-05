@@ -51,6 +51,7 @@ const useStyles = makeStyles((theme: Theme) =>
 interface IChatPage {
 	messages: IChatMessage[];
 	userData: IUserData;
+	typing: boolean;
 	sendMessage: (message: string) => void;
 	recordMessage: (messageData: IChatMessage) => void;
 }
@@ -58,6 +59,7 @@ interface IChatPage {
 const ChatPage = ({
 	messages,
 	sendMessage,
+	typing,
 	userData,
 	recordMessage,
 }: IChatPage) => {
@@ -86,13 +88,14 @@ const ChatPage = ({
 	return (
 		<Card className={classes.root} variant="outlined">
 			<CardContent className={styles.cart}>
+				{typing && <div className={styles.botMessage}>Бот думает</div>}
 				{messages
 					.map((message: IChatMessage) => {
 						if (message.from === 'user') {
 							return (
 								<div
 									key={message.date.toString()}
-									className={styles.botMessage}
+									className={styles.userMessage}
 								>
 									{message.message}
 								</div>
@@ -101,7 +104,7 @@ const ChatPage = ({
 							return (
 								<div
 									key={message.date.toString()}
-									className={styles.userMessage}
+									className={styles.botMessage}
 								>
 									{message.message}
 								</div>

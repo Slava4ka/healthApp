@@ -5,6 +5,7 @@ import * as chatApi from '../../api/chat'
 
 function* sendMessage(action: ReturnType<typeof chatActions.sendMessage>) {
 	try {
+		yield put(chatActions.setTyping(true))
 		yield put(
 			chatActions.recordMessage({
 				message: [action.message],
@@ -28,6 +29,8 @@ function* sendMessage(action: ReturnType<typeof chatActions.sendMessage>) {
 		console.log(response)
 	} catch (error) {
 		console.log(error)
+	} finally {
+		yield put(chatActions.setTyping(false))
 	}
 }
 

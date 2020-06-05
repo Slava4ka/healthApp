@@ -1,5 +1,6 @@
 export type IChatReducer = Readonly<{
 	messages: IChatMessage[],
+	typing: boolean,
 }>
 
 export interface IChatMessage {

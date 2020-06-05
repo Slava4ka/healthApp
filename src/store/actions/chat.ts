@@ -11,3 +11,8 @@ export const recordMessage = createCustomAction(
 	ChatTypes.PUT_MESSAGE_TO_STORE,
 	(messageData: IChatMessage) => ({ messageData })
 )
+
+export const setTyping = createCustomAction(
+	ChatTypes.SET_TYPING,
+	(status: boolean) => ({ status })
+)

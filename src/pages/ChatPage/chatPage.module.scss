@@ -19,7 +19,7 @@
 	margin-left: $ml;
 }
 
-.botMessage {
+.userMessage {
 	transform-origin: 100% 50%;
 	margin-left: 10em;
 	background: white;
@@ -35,7 +35,7 @@
 	max-height: 0;
 }
 
-.userMessage {
+.botMessage {
 	transform-origin: 0 50%;
 	//margin: 0.25em 1.5em 0.25em 1.5em !important;
 	margin-right: 10em;
