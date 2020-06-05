@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import makeStyles from '@material-ui/core/styles/makeStyles'
 import { createStyles, Theme } from '@material-ui/core/styles'
 import { Card } from '@material-ui/core'
@@ -7,6 +7,7 @@ import CardActions from '@material-ui/core/CardActions'
 import ChatInput from '../../components/ChatInput/ChatInput'
 import styles from './chatPage.module.scss'
 import { IChatMessage } from '../../store/types/chat.d'
+import { IUserData } from '../../store/types/signUp.d'
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -49,17 +50,30 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface IChatPage {
 	messages: IChatMessage[];
+	userData: IUserData;
 	sendMessage: (message: string) => void;
+	recordMessage: (messageData: IChatMessage) => void;
 }
 
-const ChatPage = ({ messages, sendMessage }: IChatPage) => {
+const ChatPage = ({
+	messages,
+	sendMessage,
+	userData,
+	recordMessage,
+}: IChatPage) => {
 	const classes = useStyles()
-	const m = messages.reverse()
-	console.log('messages: ', messages)
-	console.log('m: ', m)
 
-	const t = [{ name: 'a' }, { name: 'r' }, { name: 'v' }]
-	console.log(t.reverse())
+	useEffect(() => {
+		setTimeout(
+			() =>
+				recordMessage({
+					message: [`Привет, ${userData.name}!!!`],
+					date: new Date(),
+					from: 'bot',
+				}),
+			300
+		)
+	}, [])
 
 	const onButtonClickHandler = (message: string) => {
 		if (message.length > 0) {

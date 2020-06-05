@@ -4,7 +4,11 @@ import Face from '../../components/Face/Face'
 import styles from './mainPage.module.scss'
 import ItemsMenu from '../../components/ItemsMenu/ItemsMenuContainer'
 
-const MainPage = () => {
+interface IMainPage {
+	push: (path: string) => void;
+}
+
+const MainPage = ({ push }: IMainPage) => {
 	const [checked, setChecked] = useState(false)
 
 	useEffect(() => {
@@ -13,7 +17,7 @@ const MainPage = () => {
 
 	return (
 		<div className={styles.root}>
-			<Face />
+			<Face onLogoClick={() => push('chat')} />
 			<Slide direction="up" in={checked} mountOnEnter unmountOnExit>
 				<div>
 					<ItemsMenu />
