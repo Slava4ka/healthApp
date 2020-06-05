@@ -4,6 +4,7 @@ import { IAppReducer } from '../types/app.d'
 
 const initialState: IAppReducer = {
 	isInitialized: false,
+	haveUserData: false,
 	message: '',
 	globalLoader: false,
 }
@@ -26,6 +27,10 @@ export default (state = initialState, action: AppActions): IAppReducer => {
 
 		case getType(actions.setGlobalLoader): {
 			return { ...state, globalLoader: action.status }
+		}
+
+		case getType(actions.setHaveUserData): {
+			return { ...state, haveUserData: true }
 		}
 
 		default: {

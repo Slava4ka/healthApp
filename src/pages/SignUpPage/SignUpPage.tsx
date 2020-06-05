@@ -48,9 +48,10 @@ const sexList = [
 interface ISignPage {
 	setUserData: (data: IUserData) => void;
 	push: (path: string) => void;
+	setHaveUserData: () => void;
 }
 
-const SignUpPage = ({ setUserData, push }: ISignPage) => {
+const SignUpPage = ({ setUserData, push, setHaveUserData }: ISignPage) => {
 	const classes = useStyles()
 	const [name, setName] = useState<string>('')
 	const [sex, setSex] = React.useState('Мужской')
@@ -103,6 +104,7 @@ const SignUpPage = ({ setUserData, push }: ISignPage) => {
 			age > 0
 		) {
 			setUserData({ name, sex, weight, height, age })
+			setHaveUserData()
 			push('/main')
 		} else {
 			alert('Для продолжения необходимо заполнить все поля')

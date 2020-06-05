@@ -3,6 +3,8 @@ import { AppTypes } from '../constants/app'
 
 export const setInitialized = createAction(AppTypes.INITIALIZED_SUCCESS)()
 
+export const setHaveUserData = createAction(AppTypes.SET_HAVE_USER_DATA)()
+
 export const showMessage = createCustomAction(
 	AppTypes.SHOW_MESSAGE,
 	(message: string) => ({ message })
