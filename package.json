@@ -2,7 +2,7 @@
   "name": "health-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://slava4ka.github.io/health-app/",
+  "homepage": "https://slava4ka.github.io/healthApp/",
   "dependencies": {
     "@material-ui/core": "^4.10.0",
     "@material-ui/icons": "^4.9.1",
