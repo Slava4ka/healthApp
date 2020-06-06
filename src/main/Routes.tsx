@@ -10,22 +10,22 @@ import Protected from '../components/Protected/Protected'
 const Routes = () => {
 	return (
 		<Switch>
-			<Route path="/" exact component={SignUpPage} />
+			<Route path="/healthApp" exact component={SignUpPage} />
 			<Route
-				path="/main"
+				path="/healthApp/main"
 				component={() => <Protected Page={MainPage} />}
 			/>
 			<Route
-				path="/chat"
+				path="/healthApp/chat"
 				component={() => <Protected Page={ChatPage} />}
 			/>
 			<Route
-				path="/Settings"
+				path="/healthApp/Settings"
 				exact
 				component={() => <Protected Page={SettingsPage} />}
 			/>
 			<Route
-				path="/Settings/Info"
+				path="healthApp/Settings/Info"
 				exact
 				component={() => <Protected Page={SettingsInfoPage} />}
 			/>

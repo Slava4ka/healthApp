@@ -41,7 +41,7 @@ const ItemsMenu = ({ push }: IItemsMenu) => {
 							startIcon={item.icon}
 							color="default"
 							className={styles.root__item}
-							onClick={() => push('/Settings')}
+							onClick={() => push('/healthApp/Settings')}
 						>
 							{item.name}
 						</Button>

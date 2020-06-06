@@ -105,7 +105,7 @@ const SignUpPage = ({ setUserData, push, setHaveUserData }: ISignPage) => {
 		) {
 			setUserData({ name, sex, weight, height, age })
 			setHaveUserData()
-			push('/main')
+			push('/healthApp/main')
 		} else {
 			alert('Для продолжения необходимо заполнить все поля')
 		}
