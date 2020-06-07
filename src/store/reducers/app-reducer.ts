@@ -5,6 +5,8 @@ import { IAppReducer } from '../types/app.d'
 const initialState: IAppReducer = {
 	isInitialized: false,
 	haveUserData: false,
+	haveStressData: false,
+	stressPercent: 0,
 	message: '',
 	globalLoader: false,
 }
@@ -31,6 +33,14 @@ export default (state = initialState, action: AppActions): IAppReducer => {
 
 		case getType(actions.setHaveUserData): {
 			return { ...state, haveUserData: true }
+		}
+
+		case getType(actions.setStressParams): {
+			return {
+				...state,
+				stressPercent: action.percent,
+				haveStressData: true,
+			}
 		}
 
 		default: {

@@ -16,3 +16,8 @@ export const setGlobalLoader = createCustomAction(
 	AppTypes.SET_GLOBAL_LOADER,
 	(status: boolean) => ({ status })
 )
+
+export const setStressParams = createCustomAction(
+	AppTypes.SET_STRESS_PARAMS,
+	(percent: number) => ({ percent })
+)

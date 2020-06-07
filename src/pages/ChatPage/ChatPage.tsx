@@ -66,15 +66,17 @@ const ChatPage = ({
 	const classes = useStyles()
 
 	useEffect(() => {
-		setTimeout(
-			() =>
-				recordMessage({
-					message: [`Привет, ${userData.name}!!!`],
-					date: new Date(),
-					from: 'bot',
-				}),
-			300
-		)
+		if (messages.length < 1) {
+			setTimeout(
+				() =>
+					recordMessage({
+						message: [`Привет, ${userData.name}!!!`],
+						date: new Date(),
+						from: 'bot',
+					}),
+				300
+			)
+		}
 	}, [])
 
 	const onButtonClickHandler = (message: string) => {
@@ -90,13 +92,10 @@ const ChatPage = ({
 			<CardContent className={styles.cart}>
 				{typing && <div className={styles.botMessage}>Бот думает</div>}
 				{messages
-					.map((message: IChatMessage) => {
+					.map((message: IChatMessage, key: number) => {
 						if (message.from === 'user') {
 							return (
-								<div
-									key={message.date.toString()}
-									className={styles.userMessage}
-								>
+								<div key={key} className={styles.userMessage}>
 									{message.message}
 								</div>
 							)

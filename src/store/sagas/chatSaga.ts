@@ -19,7 +19,7 @@ function* sendMessage(action: ReturnType<typeof chatActions.sendMessage>) {
 				message:
 					response.data[0][0] === ''
 						? [
-								'Прошу прощения, но я вас не понял. Не пойти ли вам на хуй с такими запросами))))',
+								'Извините, я Вас не понял. Перефразируйте, пожалуйста, Ваш вопрос',
 						  ]
 						: response.data[0],
 				date: new Date(),

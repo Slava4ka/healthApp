@@ -3,16 +3,23 @@ import Slide from '@material-ui/core/Slide'
 import Face from '../../components/Face/Face'
 import styles from './mainPage.module.scss'
 import ItemsMenu from '../../components/ItemsMenu/ItemsMenuContainer'
+import { IChatMessage } from '../../store/types/chat.d'
 
 interface IMainPage {
+	messages: IChatMessage[];
 	push: (path: string) => void;
+	setStressParams: (percent: number) => void;
 }
 
-const MainPage = ({ push }: IMainPage) => {
+const MainPage = ({ push, setStressParams, messages }: IMainPage) => {
 	const [checked, setChecked] = useState(false)
 
 	useEffect(() => {
 		setTimeout(() => setChecked(true), 1000)
+
+		if (messages.length > 4) {
+			setStressParams(64)
+		}
 	}, [])
 
 	return (

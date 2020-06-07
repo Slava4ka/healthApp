@@ -11,6 +11,8 @@ import styles from './itemsMenu.module.scss'
 
 interface IItemsMenu {
 	push: (path: string) => void;
+	haveStressData: boolean;
+	stressPercent: number;
 }
 
 const items = [
@@ -22,7 +24,7 @@ const items = [
 	{ id: 6, name: 'Советы по ЗОЖ', icon: <LocalHospitalIcon /> },
 ]
 
-const ItemsMenu = ({ push }: IItemsMenu) => {
+const ItemsMenu = ({ push, haveStressData, stressPercent }: IItemsMenu) => {
 	return (
 		<div className={styles.root}>
 			<Grid container spacing={3}>
@@ -36,15 +38,25 @@ const ItemsMenu = ({ push }: IItemsMenu) => {
 						xl={3}
 						key={item.id}
 					>
-						<Button
-							variant="text"
-							startIcon={item.icon}
-							color="default"
-							className={styles.root__item}
-							onClick={() => push('/healthApp/Settings')}
-						>
-							{item.name}
-						</Button>
+						{haveStressData && item.id === 2 ? (
+							<div className={styles.stressIndicator}>
+								<div className={styles.process} />
+								<div className={styles.stressData}>
+									<DirectionsRunIcon />
+									<span>{`${stressPercent}%`}</span>
+								</div>
+							</div>
+						) : (
+							<Button
+								variant="text"
+								startIcon={item.icon}
+								color="default"
+								className={styles.root__item}
+								onClick={() => push('/Settings')}
+							>
+								{item.name}
+							</Button>
+						)}
 					</Grid>
 				))}
 			</Grid>

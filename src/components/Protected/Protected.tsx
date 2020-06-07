@@ -8,7 +8,7 @@ const Protected = ({ Page, haveUserData, location }: any) => {
 		return (
 			<Redirect
 				to={{
-					pathname: '/healthApp/',
+					pathname: '/',
 					state: { from: location.pathname },
 				}}
 			/>

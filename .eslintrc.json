@@ -49,6 +49,7 @@
         "@typescript-eslint/no-unused-vars": ["error"],
         "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
         "react/jsx-wrap-multilines": "off",
-        "no-else-return": "off"
+        "no-else-return": "off",
+        "react/no-array-index-key": "off"
     }
 }

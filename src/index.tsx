@@ -4,7 +4,6 @@ import './styles/index.scss'
 import { ConnectedRouter } from 'connected-react-router'
 import { createBrowserHistory } from 'history'
 import { Provider } from 'react-redux'
-import { HashRouter } from 'react-router-dom'
 import * as serviceWorker from './serviceWorker'
 import configureStore from './store/configureStore'
 import App from './main/App'
@@ -17,13 +16,11 @@ const store = configureStore(history, initialState)
 
 ReactDOM.render(
 	<React.StrictMode>
-		<HashRouter>
-			<Provider store={store}>
-				<ConnectedRouter history={history}>
-					<App />
-				</ConnectedRouter>
-			</Provider>
-		</HashRouter>
+		<Provider store={store}>
+			<ConnectedRouter history={history}>
+				<App />
+			</ConnectedRouter>
+		</Provider>
 	</React.StrictMode>,
 	document.getElementById('root')
 )
