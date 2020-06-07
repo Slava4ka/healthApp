@@ -8,6 +8,7 @@ import ChatInput from '../../components/ChatInput/ChatInput'
 import styles from './chatPage.module.scss'
 import { IChatMessage } from '../../store/types/chat.d'
 import { IUserData } from '../../store/types/signUp.d'
+import Loader from '../../components/Loader/Loader'
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -90,7 +91,7 @@ const ChatPage = ({
 	return (
 		<Card className={classes.root} variant="outlined">
 			<CardContent className={styles.cart}>
-				{typing && <div className={styles.botMessage}>Бот думает</div>}
+				{typing && <Loader />}
 				{messages
 					.map((message: IChatMessage, key: number) => {
 						if (message.from === 'user') {

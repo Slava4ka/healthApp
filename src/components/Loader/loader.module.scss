@@ -1,0 +1,36 @@
+.center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 14px;
+
+	.pulse {
+		width: 10px;
+		height: 10px;
+		background: #ff6d4a;
+		border-radius: 50%;
+		color: #fff;
+		animation: animate 3s linear infinite;
+		animation-duration: 2s;
+	}
+}
+
+@keyframes animate
+{
+	0%
+	{
+		box-shadow: 0 0 0 0 rgba(255,109,74,.7), 0 0 0 0 rgba(255,109,74,.7);
+	}
+	40%
+	{
+		box-shadow: 0 0 0 14px rgba(255,109,74,.7), 0 0 0 0 rgba(255,109,74,.7);
+	}
+	80%
+	{
+		box-shadow: 0 0 0 14px rgba(255,109,74,.7), 0 0 0 8px rgba(255,109,74,.7);
+	}
+	100%
+	{
+		box-shadow: 0 0 0 0 rgba(255,109,74,.7), 0 0 0 8px rgba(255,109,74,.7);
+	}
+}
