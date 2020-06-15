@@ -1,9 +1,10 @@
 export default [
-	{ name: 'Page A', uv: 4000, pv: 2400, amt: 2400 },
-	{ name: 'Page B', uv: 3000, pv: 1398, amt: 2210 },
-	{ name: 'Page C', uv: 2000, pv: 9800, amt: 2290 },
-	{ name: 'Page D', uv: 2780, pv: 3908, amt: 2000 },
-	{ name: 'Page E', uv: 1890, pv: 4800, amt: 2181 },
-	{ name: 'Page F', uv: 2390, pv: 3800, amt: 2500 },
-	{ name: 'Page G', uv: 3490, pv: 4300, amt: 2100 },
+	{ name: '00:00', uv: 40, pv: 24 },
+	{ name: '03:00', uv: 30, pv: 13 },
+	{ name: '06:00', uv: 20, pv: 98 },
+	{ name: '09:00', uv: 27, pv: 39 },
+	{ name: '12:00', uv: 18, pv: 48 },
+	{ name: '15:00', uv: 23, pv: 38 },
+	{ name: '18:00', uv: 34, pv: 43 },
+	{ name: '21:00', uv: 34, pv: 43 },
 ]

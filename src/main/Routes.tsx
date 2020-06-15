@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 import MainPage from '../pages/MainPage/MainPageContainer'
 import SettingsPage from '../pages/SettingsPage/SettingsPageContainer'
 import SettingsInfoPage from '../pages/SettingInfoPage/SettingsInfoPageContainer'
+import StressDataPage from '../pages/StressDataPage/StressDataPageContainer'
 import SignUpPage from '../pages/SignUpPage/SignUpPageContainer'
 import ChatPage from '../pages/ChatPage/ChatPageContainer'
 import Protected from '../components/Protected/Protected'
@@ -28,6 +29,11 @@ const Routes = () => {
 				path="/Settings/Info"
 				exact
 				component={() => <Protected Page={SettingsInfoPage} />}
+			/>
+			<Route
+				path="/StressData"
+				exact
+				component={() => <Protected Page={StressDataPage} />}
 			/>
 			{/* <Route path="/main" component={MainPage} />
 			<Route path="/chat" component={ChatPage} />

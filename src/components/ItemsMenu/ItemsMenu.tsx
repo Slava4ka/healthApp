@@ -7,7 +7,16 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
 import Brightness3Icon from '@material-ui/icons/Brightness3'
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital'
 import Button from '@material-ui/core/Button'
+import { createStyles, makeStyles } from '@material-ui/core/styles'
 import styles from './itemsMenu.module.scss'
+
+const useStyles = makeStyles(() =>
+	createStyles({
+		label: {
+			height: '100%',
+		},
+	})
+)
 
 interface IItemsMenu {
 	push: (path: string) => void;
@@ -25,6 +34,8 @@ const items = [
 ]
 
 const ItemsMenu = ({ push, haveStressData, stressPercent }: IItemsMenu) => {
+	const classes = useStyles()
+
 	return (
 		<div className={styles.root}>
 			<Grid container spacing={3}>
@@ -39,20 +50,26 @@ const ItemsMenu = ({ push, haveStressData, stressPercent }: IItemsMenu) => {
 						key={item.id}
 					>
 						{haveStressData && item.id === 2 ? (
-							<div className={styles.stressIndicator}>
-								<div className={styles.process} />
-								<div className={styles.stressData}>
-									<DirectionsRunIcon />
-									<span>{`${stressPercent}%`}</span>
+							<Button
+								onClick={() => push('/StressData')}
+								className={styles.stressButton}
+								classes={{ label: classes.label }}
+							>
+								<div className={styles.stressIndicator}>
+									<div className={styles.process} />
+									<div className={styles.stressData}>
+										<DirectionsRunIcon />
+										<span>{`${stressPercent}%`}</span>
+									</div>
 								</div>
-							</div>
+							</Button>
 						) : (
 							<Button
 								variant="text"
 								startIcon={item.icon}
 								color="default"
 								className={styles.root__item}
-								onClick={() => push('/Settings')}
+								// onClick={() => push('/Settings')}
 							>
 								{item.name}
 							</Button>
