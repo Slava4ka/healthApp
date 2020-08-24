@@ -1,0 +1,39 @@
+.withDrawerParent {
+	display: flex;
+}
+
+.dividerLine {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	span {
+		height: 2px;
+		background-color: white;
+		width: 80%;
+	}
+}
+
+.divider {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	flex-grow: 1;
+}
+
+.arrow {
+	color: white;
+}
+
+.avatar {
+	margin-top: 16px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	.name {
+		margin-top: 8px;
+		color: black;
+	}
+}

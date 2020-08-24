@@ -9,6 +9,11 @@ const initialState: IAppReducer = {
 	stressPercent: 0,
 	message: '',
 	globalLoader: false,
+	isDrawerOpen: false,
+	dream: Math.round(Math.random() * (10 - 6) + 6),
+	pulse: Math.round(Math.random() * (104 - 80) + 80),
+
+	isDataDigitized: false,
 }
 
 export type AppActions = ActionType<typeof actions>
@@ -40,6 +45,27 @@ export default (state = initialState, action: AppActions): IAppReducer => {
 				...state,
 				stressPercent: action.percent,
 				haveStressData: true,
+			}
+		}
+
+		case getType(actions.openDrawer): {
+			return {
+				...state,
+				isDrawerOpen: true,
+			}
+		}
+
+		case getType(actions.closeDrawer): {
+			return {
+				...state,
+				isDrawerOpen: false,
+			}
+		}
+
+		case getType(actions.setDataDigitized): {
+			return {
+				...state,
+				isDataDigitized: action.state,
 			}
 		}
 

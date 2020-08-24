@@ -38,6 +38,9 @@
         }
     },
     "rules": {
+        "jsx-a11y/click-events-have-key-events": "off",
+        "jsx-a11y/no-static-element-interactions": "off",
+        "react/jsx-curly-newline": "off",
         "prettier/prettier": ["error"],
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", "ts", "tsx"] }],
         "react/jsx-indent": [2, "tab"],

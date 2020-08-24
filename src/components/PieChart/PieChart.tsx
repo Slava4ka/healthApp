@@ -9,11 +9,17 @@ import {
 	Legend,
 } from 'recharts'
 
-const PieChart = ({ data }: any) => {
+interface IPieChart {
+	data: any;
+	width?: number;
+	height?: number;
+}
+
+const PieChart = ({ data, height = 200, width = 350 }: IPieChart) => {
 	return (
 		<LineChart
-			width={350}
-			height={200}
+			width={width}
+			height={height}
 			data={data}
 			margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
 		>

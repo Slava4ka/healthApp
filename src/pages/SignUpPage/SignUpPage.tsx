@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { Grid, Button } from '@material-ui/core'
-import TextField from '@material-ui/core/TextField'
 import styles from './signUpPage.module.scss'
 import { IUserData } from '../../store/types/signUp.d'
-import Face from '../../components/Face/Face'
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -16,6 +14,9 @@ const useStyles = makeStyles((theme) => ({
 		flexDirection: 'column',
 		alignItems: 'center',
 		justifyContent: 'center',
+		background: 'linear-gradient(180deg, #3ED0D0 31.25%, #0672A2 100%)',
+		padding: '42px',
+		borderRadius: '40px',
 	},
 	avatar: {
 		margin: theme.spacing(1),
@@ -26,7 +27,11 @@ const useStyles = makeStyles((theme) => ({
 		marginTop: theme.spacing(3),
 	},
 	submit: {
+		backgroundColor: '#C4C4C4',
 		margin: theme.spacing(3, 0, 2),
+		'&:hover': {
+			backgroundColor: '#C4C4C4',
+		},
 	},
 }))
 
@@ -54,23 +59,25 @@ interface ISignPage {
 const SignUpPage = ({ setUserData, push, setHaveUserData }: ISignPage) => {
 	const classes = useStyles()
 	const [name, setName] = useState<string>('')
+	const [mail, setMail] = useState<string>('')
+
 	const [sex, setSex] = React.useState('Мужской')
 	const [weight, setWeight] = useState<number>(0)
 	const [height, setHeight] = useState<number>(0)
 	const [age, setAge] = useState<number>(0)
 
-	const [showLoader, setShowLoader] = useState(true)
+	const [step, setStep] = useState(1)
 
-	useEffect(() => {
-		setTimeout(() => setShowLoader(false), 1500)
-	}, [])
-
-	const changeSexHandle = (event: React.ChangeEvent<HTMLInputElement>) => {
+	const changeSexHandle = (event: any) => {
 		setSex(event.target.value)
 	}
 
 	const changeNameHandle = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setName(event.target.value.toString())
+	}
+
+	const changeMailHandle = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setMail(event.target.value.toString())
 	}
 
 	const changeWeightHandle = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -98,12 +105,13 @@ const SignUpPage = ({ setUserData, push, setHaveUserData }: ISignPage) => {
 		event.preventDefault()
 		if (
 			name.length > 0 &&
+			mail.length > 0 &&
 			sex.length > 0 &&
 			height > 0 &&
 			weight > 0 &&
 			age > 0
 		) {
-			setUserData({ name, sex, weight, height, age })
+			setUserData({ name, mail, sex, weight, height, age })
 			setHaveUserData()
 			push('/main')
 		} else {
@@ -113,106 +121,183 @@ const SignUpPage = ({ setUserData, push, setHaveUserData }: ISignPage) => {
 
 	return (
 		<div className={styles.root}>
-			{showLoader ? (
-				<Face />
-			) : (
-				<Container component="main" maxWidth="xs">
-					<CssBaseline />
-					<div className={classes.paper}>
-						<Typography
-							component="h1"
-							variant="h5"
-							style={{ textAlign: 'center' }}
-						>
-							Пожалуйста, укажите Ваши данные:
-						</Typography>
-						<form
-							className={classes.form}
-							noValidate
-							onSubmit={onSubmit}
-						>
-							<Grid container spacing={2}>
-								<Grid item xs={12}>
-									<TextField
-										value={name}
-										onChange={changeNameHandle}
-										autoComplete="fname"
-										name="Name"
-										variant="outlined"
-										fullWidth
-										id="name"
-										label="Имя"
-										color="secondary"
-										autoFocus
-									/>
-								</Grid>
-								<Grid item xs={12}>
-									<TextField
-										id="outlined-select-sex-native"
-										select
-										label="Пол"
-										value={sex}
-										onChange={changeSexHandle}
-										SelectProps={{
-											native: true,
-										}}
-										variant="outlined"
-										fullWidth
-										name="sex"
-									>
-										{sexList.map((option) => (
-											<option
-												key={option.value}
-												value={option.value}
+			<Container component="main" maxWidth="xs">
+				<CssBaseline />
+				<div className={classes.paper}>
+					<Typography
+						component="h1"
+						variant="h5"
+						style={{
+							textAlign: 'center',
+							fontSize: '32px',
+							fontWeight: 'bold',
+							color: 'white',
+						}}
+					>
+						{step === 1 ? 'Учетные данные:' : 'Личные данные:'}
+					</Typography>
+					<form
+						className={classes.form}
+						noValidate
+						onSubmit={onSubmit}
+					>
+						<Grid container spacing={2}>
+							{step === 1 ? (
+								<>
+									<Grid item xs={12}>
+										<div className={styles.textField}>
+											<span className={styles.label}>
+												Email:
+											</span>
+											<input
+												className={styles.input}
+												type="text"
+												value={mail}
+												onChange={changeMailHandle}
+											/>
+										</div>
+									</Grid>
+									<Grid item xs={12}>
+										<div className={styles.textField}>
+											<span className={styles.label}>
+												Имя:
+											</span>
+											<input
+												className={styles.input}
+												type="text"
+												value={name}
+												onChange={changeNameHandle}
+												onKeyPress={(event) => {
+													if (event.charCode === 13) {
+														event.preventDefault()
+														if (
+															name.length > 0 &&
+															mail.length > 0
+														)
+															setStep(2)
+													}
+												}}
+											/>
+										</div>
+									</Grid>
+								</>
+							) : (
+								<>
+									<Grid item xs={12}>
+										<div className={styles.textField}>
+											<span className={styles.label}>
+												Пол:
+											</span>
+											<select
+												className={styles.input}
+												style={{
+													padding: 0,
+													height: '40px',
+													textIndent: '8px',
+												}}
+												value={sex}
+												onChange={changeSexHandle}
 											>
-												{option.label}
-											</option>
-										))}
-									</TextField>
-								</Grid>
-								<Grid item xs={12}>
-									<TextField
-										value={weight === 0 ? '' : weight}
-										onChange={changeWeightHandle}
-										variant="outlined"
-										fullWidth
-										id="weight"
-										label="Вес"
-										name="weight"
-										autoComplete="weight"
-										color="secondary"
-										type="number"
-									/>
-								</Grid>
-								<Grid item xs={12}>
-									<TextField
-										value={height === 0 ? '' : height}
-										onChange={changeHeightHandle}
-										variant="outlined"
-										fullWidth
-										id="height"
-										label="Рост"
-										name="height"
-										autoComplete="height"
-										color="secondary"
-										type="number"
-									/>
-								</Grid>
-								<Grid item xs={12}>
-									<TextField
-										value={age === 0 ? '' : age}
-										onChange={changeAgeHandle}
-										variant="outlined"
-										fullWidth
-										id="age"
-										label="Возраст"
-										name="age"
-										autoComplete="age"
-										color="secondary"
-										type="number"
-									/>
-								</Grid>
-							</Grid>
+												{sexList.map((option) => (
+													<option
+														key={option.value}
+														value={option.value}
+													>
+														{option.label}
+													</option>
+												))}
+											</select>
+										</div>
+									</Grid>
+									<Grid item xs={12}>
+										<div className={styles.textField}>
+											<span className={styles.label}>
+												Вес:
+											</span>
+											<input
+												className={styles.input}
+												type="number"
+												value={
+													weight === 0 ? '' : weight
+												}
+												onChange={changeWeightHandle}
+											/>
+										</div>
+									</Grid>
+									<Grid item xs={12}>
+										<div className={styles.textField}>
+											<span className={styles.label}>
+												Рост:
+											</span>
+											<input
+												className={styles.input}
+												type="number"
+												value={
+													height === 0 ? '' : height
+												}
+												onChange={changeHeightHandle}
+											/>
+										</div>
+									</Grid>
+									<Grid item xs={12}>
+										<div className={styles.textField}>
+											<span className={styles.label}>
+												Возраст:
+											</span>
+											<input
+												className={styles.input}
+												type="number"
+												value={age === 0 ? '' : age}
+												onChange={changeAgeHandle}
+												onKeyPress={(event) => {
+													if (event.charCode === 13) {
+														if (
+															name.length > 0 &&
+															mail.length > 0 &&
+															sex.length > 0 &&
+															height > 0 &&
+															weight > 0 &&
+															age > 0
+														) {
+															setUserData({
+																name,
+																mail,
+																sex,
+																weight,
+																height,
+																age,
+															})
+															setHaveUserData()
+															push('/main')
+														} else {
+															alert(
+																'Для продолжения необходимо заполнить все поля'
+															)
+														}
+													}
+												}}
+											/>
+										</div>
+									</Grid>
+								</>
+							)}
+						</Grid>
+						{step === 1 ? (
+							<Button
+								type="button"
+								fullWidth
+								variant="contained"
+								color="secondary"
+								className={classes.submit}
+								onClick={(e) => {
+									e.preventDefault()
+									if (name.length > 0 && mail.length > 0)
+										setStep(2)
+								}}
+							>
+								Ok
+							</Button>
+						) : (
 							<Button
 								type="submit"
 								fullWidth
@@ -220,12 +305,12 @@ const SignUpPage = ({ setUserData, push, setHaveUserData }: ISignPage) => {
 								color="secondary"
 								className={classes.submit}
 							>
-								Подтвердить
+								Ok
 							</Button>
-						</form>
-					</div>
-				</Container>
-			)}
+						)}
+					</form>
+				</div>
+			</Container>
 		</div>
 	)
 }

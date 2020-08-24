@@ -4,7 +4,9 @@ export type IChatReducer = Readonly<{
 }>
 
 export interface IChatMessage {
-	message: string[];
+	message: string;
 	date: Date;
 	from: 'bot' | 'user';
+	sent: number | undefined;
+	id: string | undefined;
 }

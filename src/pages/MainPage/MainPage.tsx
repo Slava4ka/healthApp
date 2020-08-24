@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import Slide from '@material-ui/core/Slide'
-import Face from '../../components/Face/Face'
+import NewLoader from '../../components/NewLoader/NewLoader'
 import styles from './mainPage.module.scss'
-import ItemsMenu from '../../components/ItemsMenu/ItemsMenuContainer'
 import { IChatMessage } from '../../store/types/chat.d'
+import ItemsMenu from '../../components/ItemsMenu/ItemsMenuContainer'
 
 interface IMainPage {
 	messages: IChatMessage[];
 	push: (path: string) => void;
 	setStressParams: (percent: number) => void;
+	name: string;
+	openDrawer: () => void;
+	isDrawerOpen: boolean;
 }
 
 const MainPage = ({ push, setStressParams, messages }: IMainPage) => {
@@ -23,10 +26,16 @@ const MainPage = ({ push, setStressParams, messages }: IMainPage) => {
 	}, [])
 
 	return (
-		<div className={styles.root}>
-			<Face onLogoClick={() => push('chat')} />
+		<div className={styles.main}>
+			<NewLoader />
 			<Slide direction="up" in={checked} mountOnEnter unmountOnExit>
-				<div>
+				<div className={styles.mainButtons}>
+					<div
+						className={styles.chatButton}
+						onClick={() => push('chat')}
+					>
+						<span>Мой ассистент</span>
+					</div>
 					<ItemsMenu />
 				</div>
 			</Slide>

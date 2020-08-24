@@ -1,5 +1,6 @@
 export interface IUserData {
 	name: string;
+	mail: string;
 	sex: string;
 	weight: number;
 	height: number;

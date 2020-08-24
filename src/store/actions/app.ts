@@ -10,6 +10,11 @@ export const showMessage = createCustomAction(
 	(message: string) => ({ message })
 )
 
+export const setDataDigitized = createCustomAction(
+	AppTypes.SET_DATA_DIGITIZED,
+	(state: boolean) => ({ state })
+)
+
 export const deleteMessage = createAction(AppTypes.DELETE_MESSAGE)()
 
 export const setGlobalLoader = createCustomAction(
@@ -21,3 +26,7 @@ export const setStressParams = createCustomAction(
 	AppTypes.SET_STRESS_PARAMS,
 	(percent: number) => ({ percent })
 )
+
+export const openDrawer = createAction(AppTypes.SET_DRAWER_OPEN)()
+
+export const closeDrawer = createAction(AppTypes.SET_DRAWER_CLOSE)()

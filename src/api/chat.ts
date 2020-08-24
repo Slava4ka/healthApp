@@ -1,10 +1,15 @@
 import axios from 'axios'
 
 const fetch = axios.create({
-	baseURL: 'http://84.201.133.59:5555/',
+	baseURL: 'http://84.201.170.162:5000/',
+	headers: {
+		'Content-Type': 'application/json',
+		'Access-Control-Allow-Origin': '*',
+		// Authorization: accessToken
+	},
 })
 
 export const sendMessage = (message: string) =>
-	fetch.post('model', {
-		question_raw: [message],
+	fetch.post('bot', {
+		text: message,
 	})

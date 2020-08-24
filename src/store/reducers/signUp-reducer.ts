@@ -3,7 +3,7 @@ import { ISignUpReducer } from '../types/signUp.d'
 import * as actions from '../actions/signUp'
 
 const initialState: ISignUpReducer = {
-	userData: { name: '', sex: '', weight: 0, height: 0, age: 0 },
+	userData: { name: '', mail: '', sex: '', weight: 0, height: 0, age: 0 },
 }
 
 export type SignUpActions = ActionType<typeof actions>

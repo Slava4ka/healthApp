@@ -71,9 +71,11 @@ const ChatPage = ({
 			setTimeout(
 				() =>
 					recordMessage({
-						message: [`Привет, ${userData.name}!!!`],
+						message: `Привет, ${userData.name}!!!`,
 						date: new Date(),
 						from: 'bot',
+						sent: 1,
+						id: undefined,
 					}),
 				300
 			)

@@ -1,81 +1,118 @@
 import React from 'react'
 import { Grid } from '@material-ui/core'
 import RestaurantIcon from '@material-ui/icons/Restaurant'
-import DirectionsRunIcon from '@material-ui/icons/DirectionsRun'
 import GroupIcon from '@material-ui/icons/Group'
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
-import Brightness3Icon from '@material-ui/icons/Brightness3'
-import LocalHospitalIcon from '@material-ui/icons/LocalHospital'
-import Button from '@material-ui/core/Button'
-import { createStyles, makeStyles } from '@material-ui/core/styles'
-import styles from './itemsMenu.module.scss'
+import DirectionsRunIcon from '@material-ui/icons/DirectionsRun'
+import SystemUpdateIcon from '@material-ui/icons/SystemUpdate'
 
-const useStyles = makeStyles(() =>
-	createStyles({
-		label: {
-			height: '100%',
-		},
-	})
-)
+import styles from './itemsMenu.module.scss'
 
 interface IItemsMenu {
 	push: (path: string) => void;
 	haveStressData: boolean;
 	stressPercent: number;
+	dream: number;
+	pulse: number;
 }
 
-const items = [
-	{ id: 1, name: 'Правильное питание', icon: <RestaurantIcon /> },
-	{ id: 2, name: 'Контроль упражнений', icon: <DirectionsRunIcon /> },
-	{ id: 3, name: 'Индикатор депрессии', icon: <GroupIcon /> },
-	{ id: 4, name: 'Контроль пульса', icon: <FavoriteBorderIcon /> },
-	{ id: 5, name: 'Длительность сна', icon: <Brightness3Icon /> },
-	{ id: 6, name: 'Советы по ЗОЖ', icon: <LocalHospitalIcon /> },
-]
-
-const ItemsMenu = ({ push, haveStressData, stressPercent }: IItemsMenu) => {
-	const classes = useStyles()
-
+const ItemsMenu = ({ push, stressPercent, dream, pulse }: IItemsMenu) => {
 	return (
 		<div className={styles.root}>
 			<Grid container spacing={3}>
-				{items.map((item: any) => (
-					<Grid
-						item
-						xs={12}
-						sm={12}
-						md={6}
-						lg={4}
-						xl={3}
-						key={item.id}
-					>
-						{haveStressData && item.id === 2 ? (
-							<Button
-								onClick={() => push('/StressData')}
-								className={styles.stressButton}
-								classes={{ label: classes.label }}
-							>
-								<div className={styles.stressIndicator}>
-									<div className={styles.process} />
-									<div className={styles.stressData}>
-										<DirectionsRunIcon />
-										<span>{`${stressPercent}%`}</span>
-									</div>
-								</div>
-							</Button>
-						) : (
-							<Button
-								variant="text"
-								startIcon={item.icon}
-								color="default"
-								className={styles.root__item}
-								// onClick={() => push('/Settings')}
-							>
-								{item.name}
-							</Button>
-						)}
-					</Grid>
-				))}
+				<Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+					<div className={styles.stressIndicator}>
+						<div
+							className={styles.process}
+							style={{
+								width: `${
+									stressPercent === 0 ? 5 : stressPercent
+								}%`,
+							}}
+						/>
+						<div
+							className={styles.stressData}
+							onClick={() => push('/StressData')}
+						>
+							<GroupIcon style={{ fontSize: '2.6rem' }} />
+							<span>СТРЕССОУСТОЙЧИВОСТЬ</span>
+							<span>{`${stressPercent}%`}</span>
+						</div>
+					</div>
+				</Grid>
+				<Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+					<div className={styles.stressIndicator}>
+						<div
+							className={styles.process}
+							style={{ width: '5%' }}
+						/>
+						<div className={styles.stressData}>
+							<RestaurantIcon style={{ fontSize: '2.6rem' }} />
+							<span>ПРАВИЛЬНОЕ ПИТАНИЕ</span>
+							<span>0%</span>
+						</div>
+					</div>
+				</Grid>
+				<Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+					<div className={styles.stressIndicator}>
+						<div
+							className={styles.process}
+							style={{ width: '5%' }}
+						/>
+						<div className={styles.stressData}>
+							<DirectionsRunIcon style={{ fontSize: '2.6rem' }} />
+							<span>ФИЗИЧЕСКАЯ АКТИВНОСТЬ</span>
+							<span>0%</span>
+						</div>
+					</div>
+				</Grid>
+				<Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+					<div className={styles.stressIndicator}>
+						<div
+							className={styles.process}
+							style={{ width: '10%', borderRadius: '10px' }}
+						/>
+						<div className={styles.stressData}>
+							<SystemUpdateIcon style={{ fontSize: '2.6rem' }} />
+							<span>ОБЪЕМ ДАННЫХ</span>
+							<span>4%</span>
+						</div>
+					</div>
+				</Grid>
+			</Grid>
+			<Grid
+				container
+				spacing={3}
+				className={styles.grid}
+				style={{ height: '100%' }}
+			>
+				<Grid
+					item
+					xs={12}
+					sm={12}
+					md={6}
+					lg={4}
+					xl={3}
+					className={styles.grid}
+				>
+					<div className={styles.roundIndicator}>
+						<div className={styles.number}>{dream}</div>
+						<div className={styles.label}>Сон</div>
+					</div>
+				</Grid>
+				<Grid
+					item
+					xs={12}
+					sm={12}
+					md={6}
+					lg={4}
+					xl={3}
+					className={styles.grid}
+				>
+					<div className={styles.roundIndicator}>
+						<div className={styles.number}>{pulse}</div>
+						<div className={styles.label}>Пульс</div>
+					</div>
+				</Grid>
 			</Grid>
 		</div>
 	)

@@ -5,4 +5,8 @@ export type IAppReducer = Readonly<{
 	stressPercent: number,
 	message: string,
 	globalLoader: boolean,
+	isDrawerOpen: boolean,
+	dream: number,
+	pulse: number,
+	isDataDigitized: boolean,
 }>

@@ -1,5 +1,6 @@
 .root {
-	padding: 0 40px 0 40px;
+	width: 80%;
+	padding: 40px 20px 0 20px;
 	height: 40vh;
 
 	.stressButton {
@@ -11,26 +12,30 @@
 
 	.stressIndicator {
 		width: 100%;
-		height: 100%;
-		border: 1px solid black;
-		border-radius: 28px;
+		height: 64px;
+		border: 1px solid #0672A2;
+		border-radius: 12px;
 		position: relative;
 
 
 		.stressData {
+			cursor: pointer;
 			height: 100%;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			padding: 0 10px 0 10px;
+			padding: 0 10px 0 24px;
+
+			* {
+				font-size: 1.5rem;
+			}
 		}
 
 		.process {
-			width: 66%;
 			height: 100%;
 			position: absolute;
 			background: rgba(255,156,133, 0.5);
-			border-radius: 28px;
+			border-radius: 10px;
 		}
 	}
 
@@ -41,4 +46,30 @@
 			border-radius: 27px;
 		}
 	}
+
+	.roundIndicator {
+		height: 181px;
+		width: 181px;
+		background: linear-gradient(180deg, #3ED0D0 31.25%, #0672A2 100%);
+		border-radius: 120px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		color: white;
+
+		.number {
+			font-size: 84px;
+		}
+
+		.label {
+			font-size: 24px;
+		}
+	}
+}
+
+.grid {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }

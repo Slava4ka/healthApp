@@ -8,22 +8,24 @@ function* sendMessage(action: ReturnType<typeof chatActions.sendMessage>) {
 		yield put(chatActions.setTyping(true))
 		yield put(
 			chatActions.recordMessage({
-				message: [action.message],
+				message: action.message,
 				date: new Date(),
 				from: 'user',
+				sent: 1,
+				id: undefined,
 			})
 		)
 		const response = yield call(chatApi.sendMessage, action.message)
 		yield put(
 			chatActions.recordMessage({
 				message:
-					response.data[0][0] === ''
-						? [
-								'Извините, я Вас не понял. Перефразируйте, пожалуйста, Ваш вопрос',
-						  ]
-						: response.data[0],
-				date: new Date(),
+					response.data.text === ''
+						? 'Извините, я Вас не понял. Перефразируйте, пожалуйста, Ваш вопрос'
+						: response.data.text,
+				date: response.data.time,
 				from: 'bot',
+				sent: response.data.sent,
+				id: response.data.id,
 			})
 		)
 		console.log(response)
