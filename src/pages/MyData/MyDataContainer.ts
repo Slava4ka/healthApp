@@ -1,7 +1,8 @@
 import { connect } from 'react-redux'
 import { RootState } from '../../store/reducers'
-import { setDataDigitized } from '../../store/actions/app'
+import { setDataDigitized, setNewRisks } from '../../store/actions/app'
 import MyData from './MyData'
+import { setNewMessage } from '../../store/actions/chat'
 
 const mapStateToProps = (state: RootState) => ({
 	isDataDigitized: state.app.isDataDigitized,
@@ -9,6 +10,8 @@ const mapStateToProps = (state: RootState) => ({
 
 const mapDispatchToProps = {
 	setDataDigitized,
+	setNewMessage,
+	setNewRisks,
 }
 
 const MyDataContainer = connect(mapStateToProps, mapDispatchToProps)(MyData)

@@ -9,4 +9,5 @@ export type IAppReducer = Readonly<{
 	dream: number,
 	pulse: number,
 	isDataDigitized: boolean,
+	haveNewRisks: boolean,
 }>

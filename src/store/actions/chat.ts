@@ -16,3 +16,8 @@ export const setTyping = createCustomAction(
 	ChatTypes.SET_TYPING,
 	(status: boolean) => ({ status })
 )
+
+export const setNewMessage = createCustomAction(
+	ChatTypes.SET_NEW_MESSAGE,
+	(count: number) => ({ count })
+)

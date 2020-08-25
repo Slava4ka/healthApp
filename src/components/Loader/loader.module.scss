@@ -7,7 +7,7 @@
 	.pulse {
 		width: 10px;
 		height: 10px;
-		background: #ff6d4a;
+		background: rgb(7, 115, 162);
 		border-radius: 50%;
 		color: #fff;
 		animation: animate 3s linear infinite;
@@ -19,18 +19,18 @@
 {
 	0%
 	{
-		box-shadow: 0 0 0 0 rgba(255,109,74,.7), 0 0 0 0 rgba(255,109,74,.7);
+		box-shadow: 0 0 0 0 rgba(7, 115, 162, .7), 0 0 0 0 rgba(7, 115, 162, .7);
 	}
 	40%
 	{
-		box-shadow: 0 0 0 14px rgba(255,109,74,.7), 0 0 0 0 rgba(255,109,74,.7);
+		box-shadow: 0 0 0 14px rgba(7, 115, 162, .7), 0 0 0 0 rgba(7, 115, 162, .7);
 	}
 	80%
 	{
-		box-shadow: 0 0 0 14px rgba(255,109,74,.7), 0 0 0 8px rgba(255,109,74,.7);
+		box-shadow: 0 0 0 14px rgba(7, 115, 162, .7), 0 0 0 8px rgba(7, 115, 162, .7);
 	}
 	100%
 	{
-		box-shadow: 0 0 0 0 rgba(255,109,74,.7), 0 0 0 8px rgba(255,109,74,.7);
+		box-shadow: 0 0 0 0 rgba(7, 115, 162, .7), 0 0 0 8px rgba(7, 115, 162, .7);
 	}
 }

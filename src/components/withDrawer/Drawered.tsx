@@ -19,6 +19,7 @@ import PersonIcon from '@material-ui/icons/Person'
 import AppBar from '@material-ui/core/AppBar'
 import WarningIcon from '@material-ui/icons/Warning'
 import ChromeReaderModeIcon from '@material-ui/icons/ChromeReaderMode'
+import Badge from '@material-ui/core/Badge'
 import MiniMenu from '../MiniMenu/MiniMenu'
 import styles from './drawered.module.scss'
 
@@ -90,6 +91,8 @@ const Drawered = ({
 	openDrawer,
 	push,
 	name,
+	newMessage,
+	haveNewRisks,
 }: any) => {
 	const classes = useStyles()
 
@@ -174,7 +177,18 @@ const Drawered = ({
 							onClick={() => push('/chat')}
 						>
 							<ListItemIcon>
-								<MailOutlineIcon className={styles.arrow} />
+								{newMessage > 0 ? (
+									<Badge
+										badgeContent={newMessage}
+										color="error"
+									>
+										<MailOutlineIcon
+											className={styles.arrow}
+										/>
+									</Badge>
+								) : (
+									<MailOutlineIcon className={styles.arrow} />
+								)}
 							</ListItemIcon>
 							<ListItemText
 								primary="Сообщения"
@@ -187,7 +201,13 @@ const Drawered = ({
 							onClick={() => push('/risks')}
 						>
 							<ListItemIcon>
-								<WarningIcon className={styles.arrow} />
+								{haveNewRisks ? (
+									<Badge badgeContent=" " color="error">
+										<WarningIcon className={styles.arrow} />
+									</Badge>
+								) : (
+									<WarningIcon className={styles.arrow} />
+								)}
 							</ListItemIcon>
 							<ListItemText
 								primary="Риски"

@@ -14,6 +14,7 @@ const initialState: IAppReducer = {
 	pulse: Math.round(Math.random() * (104 - 80) + 80),
 
 	isDataDigitized: false,
+	haveNewRisks: false,
 }
 
 export type AppActions = ActionType<typeof actions>
@@ -66,6 +67,13 @@ export default (state = initialState, action: AppActions): IAppReducer => {
 			return {
 				...state,
 				isDataDigitized: action.state,
+			}
+		}
+
+		case getType(actions.setNewRisks): {
+			return {
+				...state,
+				haveNewRisks: action.status,
 			}
 		}
 

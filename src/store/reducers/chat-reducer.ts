@@ -5,6 +5,7 @@ import { IChatReducer } from '../types/chat.d'
 const initialState: IChatReducer = {
 	messages: [],
 	typing: false,
+	newMessage: 0,
 }
 
 export type ChatActions = ActionType<typeof actions>
@@ -20,6 +21,11 @@ export default (state = initialState, action: ChatActions): IChatReducer => {
 			return {
 				...state,
 				typing: action.status,
+			}
+		case getType(actions.setNewMessage):
+			return {
+				...state,
+				newMessage: action.count,
 			}
 		default: {
 			return state

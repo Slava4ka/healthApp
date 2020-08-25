@@ -55,6 +55,9 @@ interface IChatPage {
 	typing: boolean;
 	sendMessage: (message: string) => void;
 	recordMessage: (messageData: IChatMessage) => void;
+	isDataDigitized: boolean;
+	newMessage: number;
+	setNewMessage: (n: number) => void;
 }
 
 const ChatPage = ({
@@ -63,15 +66,21 @@ const ChatPage = ({
 	typing,
 	userData,
 	recordMessage,
+	isDataDigitized,
+	newMessage,
+	setNewMessage,
 }: IChatPage) => {
 	const classes = useStyles()
 
 	useEffect(() => {
+		if (newMessage > 0) {
+			setNewMessage(0)
+		}
 		if (messages.length < 1) {
 			setTimeout(
 				() =>
 					recordMessage({
-						message: `Привет, ${userData.name}!!!`,
+						message: `${userData.name}, Здравствуйте! Благодарю Вас за использование сервиса MDay. Мы сделаем все, чтобы помочь Вам прожить долгую и здоровую жизнь.`,
 						date: new Date(),
 						from: 'bot',
 						sent: 1,
@@ -81,6 +90,21 @@ const ChatPage = ({
 			)
 		}
 	}, [])
+
+	useEffect(() => {
+		if (isDataDigitized) {
+			recordMessage({
+				message:
+					'На основе загруженных Вами медицинских данных выявлен малый риск развития инсульта и болезни Альцгеймера.\n\n' +
+					'Для того, чтобы снизать риски - Вам необходимо чаще питаться овощами и фруктами, а так же регулярно выполнять физические' +
+					'упражнения.\n\nПеречислите, пожалуйста овощи и фрукты, которые Вы употребляли за сегодняшний день?',
+				date: new Date(),
+				from: 'bot',
+				sent: 1,
+				id: undefined,
+			})
+		}
+	}, [isDataDigitized])
 
 	const onButtonClickHandler = (message: string) => {
 		if (message.length > 0) {

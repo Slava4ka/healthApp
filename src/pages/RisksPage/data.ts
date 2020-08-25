@@ -36,7 +36,7 @@ export default [
 		percent: 38,
 		value1: 'K25',
 		value2: 'K00-K93',
-		image: 'pic/lung-cancer.png',
+		image: 'pic/yazva_jeludka.svg',
 		isActive: true,
 	},
 	{
@@ -44,7 +44,7 @@ export default [
 		percent: 38,
 		value1: 'D50',
 		value2: 'D50-D89',
-		image: 'pic/lung-cancer.png',
+		image: 'pic/anemia_jel-za.svg',
 		isActive: false,
 	},
 	{
@@ -52,7 +52,7 @@ export default [
 		percent: 38,
 		value1: 'E05',
 		value2: 'E00-K90',
-		image: 'pic/lung-cancer.png',
+		image: 'pic/tereotoksikoz.svg',
 		isActive: true,
 	},
 	{
@@ -60,7 +60,7 @@ export default [
 		percent: 38,
 		value1: 'G43',
 		value2: 'G00-G99',
-		image: 'pic/lung-cancer.png',
+		image: 'pic/migren.svg',
 		isActive: false,
 	},
 	{
@@ -68,7 +68,7 @@ export default [
 		percent: 38,
 		value1: 'H40',
 		value2: 'H00-H59',
-		image: 'pic/lung-cancer.png',
+		image: 'pic/glaukoma.svg',
 		isActive: false,
 	},
 	{
@@ -76,7 +76,7 @@ export default [
 		percent: 38,
 		value1: 'H80',
 		value2: 'H60-H95',
-		image: 'pic/lung-cancer.png',
+		image: 'pic/otoskleroz.svg',
 		isActive: false,
 	},
 	{
@@ -84,7 +84,7 @@ export default [
 		percent: 38,
 		value1: 'G81',
 		value2: 'G00-G99',
-		image: 'pic/lung-cancer.png',
+		image: 'pic/gimiplegia.svg',
 		isActive: false,
 	},
 	{
@@ -92,7 +92,7 @@ export default [
 		percent: 38,
 		value1: 'L53',
 		value2: 'A43-Q54',
-		image: 'pic/lung-cancer.png',
+		image: 'pic/rak_geludka.svg',
 		isActive: false,
 	},
 	{
@@ -100,7 +100,7 @@ export default [
 		percent: 38,
 		value1: 'T14',
 		value2: 'B99-A99',
-		image: 'pic/lung-cancer.png',
+		image: 'pic/parkinson.svg',
 		isActive: true,
 	},
 ]

@@ -14,9 +14,16 @@ interface ISections {
 interface IMyData {
 	isDataDigitized: boolean;
 	setDataDigitized: (state: boolean) => void;
+	setNewMessage: (count: number) => void;
+	setNewRisks: (state: boolean) => void;
 }
 
-const MyData = ({ isDataDigitized, setDataDigitized }: IMyData) => {
+const MyData = ({
+	isDataDigitized,
+	setDataDigitized,
+	setNewMessage,
+	setNewRisks,
+}: IMyData) => {
 	const [selectedSection, setSelectedSection] = useState<
 		'Analyzes' | 'Research' | 'Diagnoses'
 	>('Analyzes')
@@ -128,7 +135,13 @@ const MyData = ({ isDataDigitized, setDataDigitized }: IMyData) => {
 					variant="contained"
 					color="primary"
 					disableRipple
-					onClick={() => setDataDigitized(true)}
+					onClick={() => {
+						if (!isDataDigitized) {
+							setDataDigitized(true)
+							setNewMessage(1)
+							setNewRisks(true)
+						}
+					}}
 				>
 					Оцифровать
 				</SmallCustomButton>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import SearchIcon from '@material-ui/icons/Search'
 import styles from './risks.module.scss'
 import SmallCustomButton from '../../components/CustomButton/SmallCustomButton'
@@ -22,6 +22,8 @@ interface IOptionEntity {
 
 interface IRisksPage {
 	isDataDigitized: boolean;
+	haveNewRisks: boolean;
+	setNewRisks: (status: boolean) => void;
 }
 
 const InfoEntity = ({ name, percent, imageAddress }: IInfoEntity) => (
@@ -71,7 +73,15 @@ const OptionEntity = ({
 	)
 }
 
-const RisksPage = ({ isDataDigitized }: IRisksPage) => {
+const RisksPage = ({
+	isDataDigitized,
+	haveNewRisks,
+	setNewRisks,
+}: IRisksPage) => {
+	useEffect(() => {
+		if (haveNewRisks) setNewRisks(false)
+	}, [])
+
 	const [openMenuList, setOpenMenuList] = useState<Boolean>(false)
 	const [list, setList] = useState(
 		isDataDigitized ? data : data.map((d) => ({ ...d, percent: 0 }))

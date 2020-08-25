@@ -27,6 +27,11 @@ export const setStressParams = createCustomAction(
 	(percent: number) => ({ percent })
 )
 
+export const setNewRisks = createCustomAction(
+	AppTypes.SET_NEW_RISKS,
+	(status: boolean) => ({ status })
+)
+
 export const openDrawer = createAction(AppTypes.SET_DRAWER_OPEN)()
 
 export const closeDrawer = createAction(AppTypes.SET_DRAWER_CLOSE)()

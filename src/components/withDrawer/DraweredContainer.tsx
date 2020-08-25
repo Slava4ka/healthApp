@@ -7,6 +7,8 @@ import Drawered from './Drawered'
 const mapStateToProps = (state: RootState) => ({
 	isDrawerOpen: state.app.isDrawerOpen,
 	name: state.signUp.userData.name,
+	newMessage: state.chat.newMessage,
+	haveNewRisks: state.app.haveNewRisks,
 })
 
 const mapDispatchToProps = {
