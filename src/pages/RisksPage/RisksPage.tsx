@@ -45,7 +45,9 @@ const InfoEntity = ({ name, percent, imageAddress }: IInfoEntity) => {
 			<div className={styles.process} style={{ width: `${state}%` }} />
 			<div className={styles.stressData}>
 				<img src={imageAddress} alt={name} />
-				<span>{name.toLocaleUpperCase()}</span>
+				<span className={state > 30 ? styles.dangerZone : ''}>
+					{name.toLocaleUpperCase()}
+				</span>
 				<span>{`${state}%`}</span>
 			</div>
 		</div>

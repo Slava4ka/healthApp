@@ -33,7 +33,7 @@ export default [
 	},
 	{
 		name: 'Язва желудка',
-		percent: 38,
+		percent: 20,
 		value1: 'K25',
 		value2: 'K00-K93',
 		image: 'pic/yazva_jeludka.svg',
@@ -41,7 +41,7 @@ export default [
 	},
 	{
 		name: 'Анемия жел-я',
-		percent: 38,
+		percent: 20,
 		value1: 'D50',
 		value2: 'D50-D89',
 		image: 'pic/anemia_jel-za.svg',
@@ -49,7 +49,7 @@ export default [
 	},
 	{
 		name: 'Тиреотоксикоз',
-		percent: 38,
+		percent: 20,
 		value1: 'E05',
 		value2: 'E00-K90',
 		image: 'pic/tereotoksikoz.svg',
@@ -57,7 +57,7 @@ export default [
 	},
 	{
 		name: 'Мигрень',
-		percent: 38,
+		percent: 20,
 		value1: 'G43',
 		value2: 'G00-G99',
 		image: 'pic/migren.svg',
@@ -65,7 +65,7 @@ export default [
 	},
 	{
 		name: 'Глаукома',
-		percent: 38,
+		percent: 20,
 		value1: 'H40',
 		value2: 'H00-H59',
 		image: 'pic/glaukoma.svg',
@@ -73,7 +73,7 @@ export default [
 	},
 	{
 		name: 'Отосклероз',
-		percent: 38,
+		percent: 20,
 		value1: 'H80',
 		value2: 'H60-H95',
 		image: 'pic/otoskleroz.svg',
@@ -81,7 +81,7 @@ export default [
 	},
 	{
 		name: 'Гимиплегия',
-		percent: 38,
+		percent: 20,
 		value1: 'G81',
 		value2: 'G00-G99',
 		image: 'pic/gimiplegia.svg',
@@ -89,7 +89,7 @@ export default [
 	},
 	{
 		name: 'Рак желудка',
-		percent: 38,
+		percent: 20,
 		value1: 'L53',
 		value2: 'A43-Q54',
 		image: 'pic/rak_geludka.svg',
@@ -97,7 +97,7 @@ export default [
 	},
 	{
 		name: 'Болезнь паркинсона',
-		percent: 38,
+		percent: 20,
 		value1: 'T14',
 		value2: 'B99-A99',
 		image: 'pic/parkinson.svg',

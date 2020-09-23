@@ -42,9 +42,11 @@ const MenuItem = ({ push, itemName, percent, animate }: IMenuItem) => {
 			<div
 				className={styles.process}
 				style={{
-					width: `${dynamicPercent === 0 ? 3 : dynamicPercent}%`,
+					width: `${
+						dynamicPercent === 0 ? 3 : dynamicPercent * 2.2
+					}%`,
 					background: `rgba(10, 227, 21, ${
-						dynamicPercent <= 0.1 ? 0.1 : dynamicPercent / 100
+						dynamicPercent <= 0.1 ? 0.1 : (dynamicPercent * 3) / 100
 					})`,
 				}}
 			/>
