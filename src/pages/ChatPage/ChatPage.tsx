@@ -58,6 +58,8 @@ interface IChatPage {
 	isDataDigitized: boolean;
 	newMessage: number;
 	setNewMessage: (n: number) => void;
+	setCrutchMessage: () => void;
+	crutchMessage: boolean;
 }
 
 const ChatPage = ({
@@ -69,6 +71,8 @@ const ChatPage = ({
 	isDataDigitized,
 	newMessage,
 	setNewMessage,
+	setCrutchMessage,
+	crutchMessage,
 }: IChatPage) => {
 	const classes = useStyles()
 
@@ -92,7 +96,7 @@ const ChatPage = ({
 	}, [])
 
 	useEffect(() => {
-		if (isDataDigitized) {
+		if (isDataDigitized && !crutchMessage) {
 			recordMessage({
 				message:
 					'На основе загруженных Вами медицинских данных выявлен малый риск развития инсульта и болезни Альцгеймера.\n\n' +
@@ -103,6 +107,7 @@ const ChatPage = ({
 				sent: 1,
 				id: undefined,
 			})
+			setCrutchMessage()
 		}
 	}, [isDataDigitized])
 
@@ -115,34 +120,39 @@ const ChatPage = ({
 	}
 
 	return (
-		<Card className={classes.root} variant="outlined">
-			<CardContent className={styles.cart}>
-				{typing && <Loader />}
-				{messages
-					.map((message: IChatMessage, key: number) => {
-						if (message.from === 'user') {
-							return (
-								<div key={key} className={styles.userMessage}>
-									{message.message}
-								</div>
-							)
-						} else {
-							return (
-								<div
-									key={message.date.toString()}
-									className={styles.botMessage}
-								>
-									{message.message}
-								</div>
-							)
-						}
-					})
-					.reverse()}
-			</CardContent>
-			<CardActions>
-				<ChatInput onButtonClick={onButtonClickHandler} />
-			</CardActions>
-		</Card>
+		<div className={styles.body}>
+			<Card className={classes.root} variant="outlined">
+				<CardContent className={styles.cart}>
+					{typing && <Loader />}
+					{messages
+						.map((message: IChatMessage, key: number) => {
+							if (message.from === 'user') {
+								return (
+									<div
+										key={key}
+										className={styles.userMessage}
+									>
+										{message.message}
+									</div>
+								)
+							} else {
+								return (
+									<div
+										key={message.date.toString()}
+										className={styles.botMessage}
+									>
+										{message.message}
+									</div>
+								)
+							}
+						})
+						.reverse()}
+				</CardContent>
+				<CardActions>
+					<ChatInput onButtonClick={onButtonClickHandler} />
+				</CardActions>
+			</Card>
+		</div>
 	)
 }
 

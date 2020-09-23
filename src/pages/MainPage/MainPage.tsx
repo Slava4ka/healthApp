@@ -8,26 +8,49 @@ import ItemsMenu from '../../components/ItemsMenu/ItemsMenuContainer'
 interface IMainPage {
 	messages: IChatMessage[];
 	push: (path: string) => void;
-	setStressParams: (percent: number) => void;
+	setMenuData: (
+		name:
+			| 'activityPercent'
+			| 'stressPercent'
+			| 'nutritionPercent'
+			| 'dataPercent',
+		value: number
+	) => void;
 	name: string;
 	openDrawer: () => void;
+	setNewMenuData: (status: boolean) => void;
 	isDrawerOpen: boolean;
+	crutch: boolean;
+	setCrutch: () => void;
 }
 
-const MainPage = ({ push, setStressParams, messages }: IMainPage) => {
+const MainPage = ({
+	push,
+	setMenuData,
+	messages,
+	setNewMenuData,
+	crutch,
+	setCrutch,
+}: IMainPage) => {
 	const [checked, setChecked] = useState(false)
 
 	useEffect(() => {
 		setTimeout(() => setChecked(true), 1000)
 
-		if (messages.length > 4) {
-			setStressParams(64)
+		if (messages.length > 4 && !crutch) {
+			setMenuData('stressPercent', 64)
+			setMenuData('nutritionPercent', 30)
+			setMenuData('dataPercent', 34)
+			setNewMenuData(true)
+			setCrutch()
 		}
 	}, [])
 
 	return (
 		<div className={styles.main}>
-			<NewLoader />
+			<div className={styles.loader}>
+				<NewLoader />
+			</div>
 			<Slide direction="up" in={checked} mountOnEnter unmountOnExit>
 				<div className={styles.mainButtons}>
 					<div

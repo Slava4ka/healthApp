@@ -26,16 +26,31 @@ interface IRisksPage {
 	setNewRisks: (status: boolean) => void;
 }
 
-const InfoEntity = ({ name, percent, imageAddress }: IInfoEntity) => (
-	<div className={styles.stressIndicator} key={name}>
-		<div className={styles.process} style={{ width: `${percent}%` }} />
-		<div className={styles.stressData}>
-			<img src={imageAddress} alt={name} />
-			<span>{name.toLocaleUpperCase()}</span>
-			<span>{`${percent}%`}</span>
+const InfoEntity = ({ name, percent, imageAddress }: IInfoEntity) => {
+	const [state, setState] = useState<number>(0)
+	useEffect(() => {
+		if (percent > 0) {
+			if (state < percent) {
+				setTimeout(() => setState(state + 1), 30)
+			} else {
+				setTimeout(() => setState(percent), 300)
+			}
+		} else {
+			setState(percent)
+		}
+	}, [state])
+
+	return (
+		<div className={styles.stressIndicator} key={name}>
+			<div className={styles.process} style={{ width: `${state}%` }} />
+			<div className={styles.stressData}>
+				<img src={imageAddress} alt={name} />
+				<span>{name.toLocaleUpperCase()}</span>
+				<span>{`${state}%`}</span>
+			</div>
 		</div>
-	</div>
-)
+	)
+}
 
 const OptionEntity = ({
 	name,

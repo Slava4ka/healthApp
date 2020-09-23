@@ -22,9 +22,16 @@ export const setGlobalLoader = createCustomAction(
 	(status: boolean) => ({ status })
 )
 
-export const setStressParams = createCustomAction(
-	AppTypes.SET_STRESS_PARAMS,
-	(percent: number) => ({ percent })
+export const setMenuData = createCustomAction(
+	AppTypes.SET_MENU_DATA,
+	(
+		name:
+			| 'activityPercent'
+			| 'stressPercent'
+			| 'nutritionPercent'
+			| 'dataPercent',
+		value: number
+	) => ({ name, value })
 )
 
 export const setNewRisks = createCustomAction(
@@ -32,6 +39,13 @@ export const setNewRisks = createCustomAction(
 	(status: boolean) => ({ status })
 )
 
+export const setNewMenuData = createCustomAction(
+	AppTypes.SET_NEW_MENU_DATA,
+	(status: boolean) => ({ status })
+)
+
 export const openDrawer = createAction(AppTypes.SET_DRAWER_OPEN)()
 
 export const closeDrawer = createAction(AppTypes.SET_DRAWER_CLOSE)()
+export const setCrutch = createAction(AppTypes.SET_CRUTCH)()
+export const setCrutchMessage = createAction(AppTypes.SET_CRUTCH_MESSAGE)()

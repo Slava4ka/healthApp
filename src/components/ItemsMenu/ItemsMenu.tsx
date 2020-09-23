@@ -1,83 +1,100 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Grid } from '@material-ui/core'
-import RestaurantIcon from '@material-ui/icons/Restaurant'
 import GroupIcon from '@material-ui/icons/Group'
-import DirectionsRunIcon from '@material-ui/icons/DirectionsRun'
-import SystemUpdateIcon from '@material-ui/icons/SystemUpdate'
 
+import { v4 as uuidv4 } from 'uuid'
 import styles from './itemsMenu.module.scss'
+import { IMenuData } from '../../store/types/app.d'
 
 interface IItemsMenu {
 	push: (path: string) => void;
 	haveStressData: boolean;
-	stressPercent: number;
+	menuData: IMenuData;
 	dream: number;
 	pulse: number;
+	newMenuData: boolean;
+	setNewMenuData: (status: boolean) => void;
 }
 
-const ItemsMenu = ({ push, stressPercent, dream, pulse }: IItemsMenu) => {
+interface IMenuItem {
+	push: (path: string) => void;
+	itemName: string;
+	percent: number;
+	animate: boolean;
+}
+
+const MenuItem = ({ push, itemName, percent, animate }: IMenuItem) => {
+	const [dynamicPercent, setDynamicPercent] = useState<number>(0)
+	useEffect(() => {
+		if (percent > 0 && animate) {
+			if (dynamicPercent < percent) {
+				setTimeout(() => setDynamicPercent(dynamicPercent + 1), 30)
+			} else {
+				setTimeout(() => setDynamicPercent(percent), 300)
+			}
+		} else {
+			setDynamicPercent(percent)
+		}
+	}, [dynamicPercent])
+
+	return (
+		<div className={styles.stressIndicator}>
+			<div
+				className={styles.process}
+				style={{
+					width: `${dynamicPercent === 0 ? 3 : dynamicPercent}%`,
+					background: `rgba(10, 227, 21, ${
+						dynamicPercent <= 0.1 ? 0.1 : dynamicPercent / 100
+					})`,
+				}}
+			/>
+			<div
+				className={styles.stressData}
+				onClick={() => push('/StressData')}
+			>
+				<GroupIcon style={{ fontSize: '2.6rem' }} />
+				<span>{itemName}</span>
+				<span>{`${dynamicPercent}%`}</span>
+			</div>
+		</div>
+	)
+}
+
+const ItemsMenu = ({
+	push,
+	menuData,
+	dream,
+	pulse,
+	newMenuData,
+	setNewMenuData,
+}: IItemsMenu) => {
+	useEffect(() => {
+		return () => {
+			setNewMenuData(false)
+		}
+	}, [])
+
 	return (
 		<div className={styles.root}>
 			<Grid container spacing={3}>
-				<Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-					<div className={styles.stressIndicator}>
-						<div
-							className={styles.process}
-							style={{
-								width: `${
-									stressPercent === 0 ? 5 : stressPercent
-								}%`,
-							}}
+				{Object.keys(menuData).map((item: string) => (
+					<Grid
+						item
+						xs={12}
+						sm={12}
+						md={6}
+						lg={6}
+						xl={6}
+						key={uuidv4()}
+					>
+						<MenuItem
+							push={push}
+							itemName={menuData[item].name}
+							percent={menuData[item].value}
+							animate={newMenuData}
 						/>
-						<div
-							className={styles.stressData}
-							onClick={() => push('/StressData')}
-						>
-							<GroupIcon style={{ fontSize: '2.6rem' }} />
-							<span>СТРЕССОУСТОЙЧИВОСТЬ</span>
-							<span>{`${stressPercent}%`}</span>
-						</div>
-					</div>
-				</Grid>
-				<Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-					<div className={styles.stressIndicator}>
-						<div
-							className={styles.process}
-							style={{ width: '5%' }}
-						/>
-						<div className={styles.stressData}>
-							<RestaurantIcon style={{ fontSize: '2.6rem' }} />
-							<span>ПРАВИЛЬНОЕ ПИТАНИЕ</span>
-							<span>0%</span>
-						</div>
-					</div>
-				</Grid>
-				<Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-					<div className={styles.stressIndicator}>
-						<div
-							className={styles.process}
-							style={{ width: '5%' }}
-						/>
-						<div className={styles.stressData}>
-							<DirectionsRunIcon style={{ fontSize: '2.6rem' }} />
-							<span>ФИЗИЧЕСКАЯ АКТИВНОСТЬ</span>
-							<span>0%</span>
-						</div>
-					</div>
-				</Grid>
-				<Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-					<div className={styles.stressIndicator}>
-						<div
-							className={styles.process}
-							style={{ width: '10%', borderRadius: '10px' }}
-						/>
-						<div className={styles.stressData}>
-							<SystemUpdateIcon style={{ fontSize: '2.6rem' }} />
-							<span>ОБЪЕМ ДАННЫХ</span>
-							<span>4%</span>
-						</div>
-					</div>
-				</Grid>
+					</Grid>
+				))}
 			</Grid>
 			<Grid
 				container

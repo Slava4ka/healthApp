@@ -6,7 +6,17 @@ const initialState: IAppReducer = {
 	isInitialized: false,
 	haveUserData: false,
 	haveStressData: false,
-	stressPercent: 0,
+	menuData: {
+		activityPercent: { name: 'Физическая активность', value: 0 },
+		dataPercent: { name: 'Объем данных', value: 4 },
+		nutritionPercent: { name: 'Правильное питание', value: 0 },
+		stressPercent: { name: 'Cтрессоустойчивость', value: 0 },
+	},
+	newMenuData: true,
+
+	crutch: false,
+	crutchMessage: false,
+
 	message: '',
 	globalLoader: false,
 	isDrawerOpen: false,
@@ -41,10 +51,16 @@ export default (state = initialState, action: AppActions): IAppReducer => {
 			return { ...state, haveUserData: true }
 		}
 
-		case getType(actions.setStressParams): {
+		case getType(actions.setMenuData): {
 			return {
 				...state,
-				stressPercent: action.percent,
+				menuData: {
+					...state.menuData,
+					[action.name]: {
+						...state.menuData[action.name],
+						value: action.value,
+					},
+				},
 				haveStressData: true,
 			}
 		}
@@ -74,6 +90,26 @@ export default (state = initialState, action: AppActions): IAppReducer => {
 			return {
 				...state,
 				haveNewRisks: action.status,
+			}
+		}
+
+		case getType(actions.setNewMenuData): {
+			return {
+				...state,
+				newMenuData: action.status,
+			}
+		}
+
+		case getType(actions.setCrutch): {
+			return {
+				...state,
+				crutch: true,
+			}
+		}
+		case getType(actions.setCrutchMessage): {
+			return {
+				...state,
+				crutchMessage: true,
 			}
 		}
 

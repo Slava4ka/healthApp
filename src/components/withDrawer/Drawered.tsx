@@ -202,7 +202,7 @@ const Drawered = ({
 						>
 							<ListItemIcon>
 								{haveNewRisks ? (
-									<Badge badgeContent=" " color="error">
+									<Badge badgeContent="1" color="error">
 										<WarningIcon className={styles.arrow} />
 									</Badge>
 								) : (
