@@ -29,72 +29,72 @@ const MyData = ({
 	>('Analyzes')
 
 	const sections: ISections[] = [
-		{ name: 'Анализы', value: 'Analyzes' },
-		{ name: 'Исследования', value: 'Research' },
-		{ name: 'Диагнозы', value: 'Diagnoses' },
+		{ name: 'Analyzes', value: 'Analyzes' },
+		{ name: 'Researches', value: 'Research' },
+		{ name: 'Diagnoses', value: 'Diagnoses' },
 	]
 
 	const rowData = [
 		{
-			name: 'Лейкоциты (WBC)',
+			name: 'Leukocytes (WBC)',
 			v1: 3.91,
-			v2: '10 * 9/л',
+			v2: '10 * 9/l',
 			v3: { from: 4, to: 9 },
 			sequence: generateSeq(),
 		},
 		{
-			name: 'Эритроциты (RBC)',
+			name: 'Erythrocytes (RBC)',
 			v1: 4.91,
-			v2: '10 * 12/л',
+			v2: '10 * 12/l',
 			v3: { from: 4.3, to: 5.7 },
 			sequence: generateSeq(),
 		},
 		{
-			name: 'Гематокрит',
+			name: 'Hematocrit',
 			v1: 62.1,
 			v2: '%',
 			v3: { from: 36, to: 56 },
 			sequence: generateSeq(),
 		},
 		{
-			name: 'Средний объём эритроцита',
+			name: 'Average erythrocyte volume',
 			v1: 85.7,
-			v2: 'ф/л',
+			v2: 'fl',
 			v3: { from: 80, to: 100 },
 			sequence: generateSeq(),
 		},
 		{
-			name: 'Среднее содержание HGB в эритроците',
+			name: 'Average HGB content in erythrocyte',
 			v1: 29.3,
-			v2: 'пг',
+			v2: 'pg',
 			v3: { from: 27, to: 32 },
 			sequence: generateSeq(),
 		},
 		{
-			name: 'Средняя концентрация HGB в эритроците',
+			name: 'Average HGB concentration in erythrocyte',
 			v1: 342,
-			v2: 'г/дл',
+			v2: 'g/100ml',
 			v3: { from: 320, to: 380 },
 			sequence: generateSeq(),
 		},
 		{
-			name: 'Ширина распределения эритроцитов',
+			name: 'Red blood cell distribution width',
 			v1: 14.0,
 			v2: '%',
 			v3: { from: 10, to: 16.5 },
 			sequence: generateSeq(),
 		},
 		{
-			name: 'Тромбоциты',
+			name: 'Platelets',
 			v1: 179,
-			v2: '10*9/л',
+			v2: '10*9/l',
 			v3: { from: 120, to: 380 },
 			sequence: generateSeq(),
 		},
 		{
-			name: 'Ширина распределения тромбоцитов',
+			name: 'Platelet distribution width',
 			v1: 10.4,
-			v2: 'г/л',
+			v2: 'g/l',
 			v3: { from: 12, to: 18 },
 			sequence: generateSeq(),
 		},
@@ -102,7 +102,7 @@ const MyData = ({
 
 	return (
 		<div className={styles.main}>
-			<div className={styles.pageName}>Мои данные</div>
+			<div className={styles.pageName}>My Data</div>
 			<ButtonGroup
 				className={styles.buttonGroup}
 				color="primary"
@@ -128,7 +128,7 @@ const MyData = ({
 					<SearchIcon />
 					<input
 						type="search"
-						placeholder="Введите наименование анализа"
+						placeholder="Enter a name for the analysis"
 					/>
 				</div>
 				<SmallCustomButton
@@ -143,7 +143,7 @@ const MyData = ({
 						}
 					}}
 				>
-					Оцифровать
+					Digitize
 				</SmallCustomButton>
 			</div>
 
@@ -197,7 +197,7 @@ const MyData = ({
 					))
 				) : (
 					<div className={styles.empty}>
-						<h1>У Вас отсутствуют медицинские данные</h1>
+						<h1>You have no medical data</h1>
 					</div>
 				)}
 			</div>

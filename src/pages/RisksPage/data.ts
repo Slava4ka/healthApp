@@ -1,6 +1,6 @@
 export default [
 	{
-		name: 'Инсульт',
+		name: 'Stroke',
 		percent: 32,
 		image: 'pic/brain.png',
 		value1: 'I23',
@@ -8,7 +8,7 @@ export default [
 		isActive: true,
 	},
 	{
-		name: 'Инфаркт',
+		name: 'Heart Attack',
 		percent: 27,
 		value1: 'A73',
 		value2: 'A12-A48',
@@ -16,7 +16,7 @@ export default [
 		isActive: true,
 	},
 	{
-		name: 'Сахарный диабет',
+		name: 'Diabetes',
 		percent: 14,
 		value1: 'Q99',
 		value2: 'Q98-Q48',
@@ -24,7 +24,7 @@ export default [
 		isActive: false,
 	},
 	{
-		name: 'Болезнь альцгеймера',
+		name: "Alzheimer's disease",
 		percent: 32,
 		value1: 'P11',
 		value2: 'P19-P50',
@@ -32,7 +32,7 @@ export default [
 		isActive: true,
 	},
 	{
-		name: 'Язва желудка',
+		name: 'Stomach ulcer',
 		percent: 20,
 		value1: 'K25',
 		value2: 'K00-K93',
@@ -40,7 +40,7 @@ export default [
 		isActive: true,
 	},
 	{
-		name: 'Анемия жел-я',
+		name: 'Anemia',
 		percent: 20,
 		value1: 'D50',
 		value2: 'D50-D89',
@@ -48,7 +48,7 @@ export default [
 		isActive: false,
 	},
 	{
-		name: 'Тиреотоксикоз',
+		name: 'Thyrotoxicosis',
 		percent: 20,
 		value1: 'E05',
 		value2: 'E00-K90',
@@ -56,7 +56,7 @@ export default [
 		isActive: true,
 	},
 	{
-		name: 'Мигрень',
+		name: 'Migraine',
 		percent: 20,
 		value1: 'G43',
 		value2: 'G00-G99',
@@ -64,7 +64,7 @@ export default [
 		isActive: false,
 	},
 	{
-		name: 'Глаукома',
+		name: 'Glaucoma',
 		percent: 20,
 		value1: 'H40',
 		value2: 'H00-H59',
@@ -72,7 +72,7 @@ export default [
 		isActive: false,
 	},
 	{
-		name: 'Отосклероз',
+		name: 'Otosclerosis',
 		percent: 20,
 		value1: 'H80',
 		value2: 'H60-H95',
@@ -80,7 +80,7 @@ export default [
 		isActive: false,
 	},
 	{
-		name: 'Гимиплегия',
+		name: 'Hemiplegia',
 		percent: 20,
 		value1: 'G81',
 		value2: 'G00-G99',
@@ -88,7 +88,7 @@ export default [
 		isActive: false,
 	},
 	{
-		name: 'Рак желудка',
+		name: 'Stomach cancer',
 		percent: 20,
 		value1: 'L53',
 		value2: 'A43-Q54',
@@ -96,7 +96,7 @@ export default [
 		isActive: false,
 	},
 	{
-		name: 'Болезнь паркинсона',
+		name: "Parkinson's disease",
 		percent: 20,
 		value1: 'T14',
 		value2: 'B99-A99',

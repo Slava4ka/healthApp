@@ -37,16 +37,16 @@ const useStyles = makeStyles((theme) => ({
 
 const sexList = [
 	{
-		value: 'Мужской',
-		label: 'Мужской',
+		value: 'Male',
+		label: 'Male',
 	},
 	{
-		value: 'Женский',
-		label: 'Женский',
+		value: 'Female',
+		label: 'Female',
 	},
 	{
-		value: 'Другой',
-		label: 'Другой',
+		value: 'Other',
+		label: 'Other',
 	},
 ]
 
@@ -134,7 +134,9 @@ const SignUpPage = ({ setUserData, push, setHaveUserData }: ISignPage) => {
 							color: 'white',
 						}}
 					>
-						{step === 1 ? 'Учетные данные:' : 'Личные данные:'}
+						{step === 1
+							? 'Already have an account?:'
+							: 'Personal Data:'}
 					</Typography>
 					<form
 						className={classes.form}
@@ -160,7 +162,7 @@ const SignUpPage = ({ setUserData, push, setHaveUserData }: ISignPage) => {
 									<Grid item xs={12}>
 										<div className={styles.textField}>
 											<span className={styles.label}>
-												Имя:
+												Name:
 											</span>
 											<input
 												className={styles.input}
@@ -186,7 +188,7 @@ const SignUpPage = ({ setUserData, push, setHaveUserData }: ISignPage) => {
 									<Grid item xs={12}>
 										<div className={styles.textField}>
 											<span className={styles.label}>
-												Пол:
+												Gender
 											</span>
 											<select
 												className={styles.input}
@@ -212,7 +214,7 @@ const SignUpPage = ({ setUserData, push, setHaveUserData }: ISignPage) => {
 									<Grid item xs={12}>
 										<div className={styles.textField}>
 											<span className={styles.label}>
-												Вес:
+												Weight:
 											</span>
 											<input
 												className={styles.input}
@@ -227,7 +229,7 @@ const SignUpPage = ({ setUserData, push, setHaveUserData }: ISignPage) => {
 									<Grid item xs={12}>
 										<div className={styles.textField}>
 											<span className={styles.label}>
-												Рост:
+												Height:
 											</span>
 											<input
 												className={styles.input}
@@ -242,7 +244,7 @@ const SignUpPage = ({ setUserData, push, setHaveUserData }: ISignPage) => {
 									<Grid item xs={12}>
 										<div className={styles.textField}>
 											<span className={styles.label}>
-												Возраст:
+												Age:
 											</span>
 											<input
 												className={styles.input}

@@ -37,7 +37,7 @@ const SettingsPage = ({ goBack, push }: ISettingsPage) => {
 					<CardContent>
 						<SettingsList
 							push={push}
-							name="Индикаторы персонального здоровья"
+							name="Personal health indicators"
 						/>
 					</CardContent>
 				</Card>

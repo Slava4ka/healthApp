@@ -152,10 +152,10 @@ const Drawered = ({
 					<div className={classes.drawerHeader}>
 						{/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
 						<img
-							src="C2.png"
+							src="C2White.png"
 							alt="logo"
 							style={{
-								height: '34px',
+								height: '52px',
 								marginLeft: '16px',
 								cursor: 'pointer',
 							}}
@@ -173,7 +173,7 @@ const Drawered = ({
 					<List>
 						<ListItem
 							button
-							key="Сообщения"
+							key="Message"
 							onClick={() => push('/chat')}
 						>
 							<ListItemIcon>
@@ -191,13 +191,13 @@ const Drawered = ({
 								)}
 							</ListItemIcon>
 							<ListItemText
-								primary="Сообщения"
+								primary="Message"
 								style={{ color: 'white', fontWeight: 'bold' }}
 							/>
 						</ListItem>
 						<ListItem
 							button
-							key="Риски"
+							key="Risks"
 							onClick={() => push('/risks')}
 						>
 							<ListItemIcon>
@@ -210,31 +210,31 @@ const Drawered = ({
 								)}
 							</ListItemIcon>
 							<ListItemText
-								primary="Риски"
+								primary="Risks"
 								style={{ color: 'white', fontWeight: 'bold' }}
 							/>
 						</ListItem>
 						<ListItem
 							button
-							key="Анализы"
+							key="Analyzes"
 							onClick={() => push('/myData')}
 						>
 							<ListItemIcon>
 								<OpacityIcon className={styles.arrow} />
 							</ListItemIcon>
 							<ListItemText
-								primary="Данные"
+								primary="Medical Data"
 								style={{ color: 'white', fontWeight: 'bold' }}
 							/>
 						</ListItem>
-						<ListItem button key="Новости">
+						<ListItem button key="News">
 							<ListItemIcon>
 								<ChromeReaderModeIcon
 									className={styles.arrow}
 								/>
 							</ListItemIcon>
 							<ListItemText
-								primary="Новости"
+								primary="News"
 								style={{ color: 'white', fontWeight: 'bold' }}
 							/>
 						</ListItem>
@@ -244,12 +244,12 @@ const Drawered = ({
 							<span />
 						</div>
 						<List>
-							<ListItem button key="Вопросы">
+							<ListItem button key="FAQ">
 								<ListItemIcon>
 									<HelpIcon className={styles.arrow} />
 								</ListItemIcon>
 								<ListItemText
-									primary="Вопросы"
+									primary="FAQ"
 									style={{
 										color: 'white',
 										fontWeight: 'bold',

@@ -42,11 +42,10 @@ const MenuItem = ({ push, itemName, percent, animate }: IMenuItem) => {
 			<div
 				className={styles.process}
 				style={{
-					width: `${
-						dynamicPercent === 0 ? 3 : dynamicPercent * 2.2
-					}%`,
+					width: `${dynamicPercent === 0 ? 1 : dynamicPercent}%`,
+					height: `${dynamicPercent === 0 ? 92 : 100}%`,
 					background: `rgba(10, 227, 21, ${
-						dynamicPercent <= 0.1 ? 0.1 : (dynamicPercent * 3) / 100
+						dynamicPercent <= 10 ? 0.1 : dynamicPercent / 100
 					})`,
 				}}
 			/>
@@ -115,7 +114,7 @@ const ItemsMenu = ({
 				>
 					<div className={styles.roundIndicator}>
 						<div className={styles.number}>{dream}</div>
-						<div className={styles.label}>Сон</div>
+						<div className={styles.label}>Sleep</div>
 					</div>
 				</Grid>
 				<Grid
@@ -129,7 +128,7 @@ const ItemsMenu = ({
 				>
 					<div className={styles.roundIndicator}>
 						<div className={styles.number}>{pulse}</div>
-						<div className={styles.label}>Пульс</div>
+						<div className={styles.label}>Pulse</div>
 					</div>
 				</Grid>
 			</Grid>

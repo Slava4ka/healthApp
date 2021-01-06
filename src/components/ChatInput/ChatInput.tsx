@@ -54,7 +54,7 @@ const ChatInput = ({ onButtonClick }: IChatInput) => {
 				multiline
 				rows={2}
 				className={classes.input}
-				placeholder="Введите сообщение"
+				placeholder="Text a message"
 				inputProps={{ 'aria-label': 'send message' }}
 				onKeyDown={onEnterHandler}
 			/>

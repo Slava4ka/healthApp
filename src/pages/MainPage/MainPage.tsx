@@ -57,7 +57,7 @@ const MainPage = ({
 						className={styles.chatButton}
 						onClick={() => push('chat')}
 					>
-						<span>Мой ассистент</span>
+						<span>My assistant</span>
 					</div>
 					<ItemsMenu />
 				</div>

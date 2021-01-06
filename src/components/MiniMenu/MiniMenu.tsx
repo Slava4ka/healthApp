@@ -23,18 +23,18 @@ const MiniMenu = ({ miniMenuOpen, push }: IMiniMenu) => {
 					</Avatar>
 					<div className={styles.miniMenuBody__item}>
 						<SubscriptionsIcon />
-						<span className={styles.name}>Подписки</span>
+						<span className={styles.name}>Subscriptions</span>
 					</div>
 					<div
 						className={styles.miniMenuBody__item}
 						onClick={() => push('/Settings')}
 					>
 						<SettingsIcon />
-						<span className={styles.name}>Настройки</span>
+						<span className={styles.name}>Settings</span>
 					</div>
 					<div className={styles.miniMenuBody__item}>
 						<ExitToAppIcon />
-						<span className={styles.name}>Выход</span>
+						<span className={styles.name}>Output</span>
 					</div>
 				</div>
 			</Paper>

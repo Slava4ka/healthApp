@@ -81,41 +81,37 @@ const ChatPage = ({
 			setNewMessage(0)
 		}
 		if (messages.length < 1) {
-			setTimeout(
-				() =>
-					recordMessage({
-						message: `${userData.name}, Здравствуйте! Благодарю Вас за использование сервиса MDay. Мы сделаем все, чтобы помочь Вам прожить долгую и здоровую жизнь.`,
-						date: new Date(),
-						from: 'bot',
-						sent: 1,
-						id: undefined,
-					}),
-				300
-			)
-		}
-	}, [])
-
-	useEffect(() => {
-		if (isDataDigitized && !crutchMessage) {
 			recordMessage({
-				message:
-					'На основе загруженных Вами медицинских данных выявлен малый риск развития инсульта и болезни Альцгеймера.\n\n' +
-					'Для того, чтобы снизать риски - Вам необходимо чаще питаться овощами и фруктами, а так же регулярно выполнять физические' +
-					'упражнения.\n\nПеречислите, пожалуйста овощи и фрукты, которые Вы употребляли за сегодняшний день?',
+				message: `${userData.name}, Hi! Thank you for using our UniM service. We will do all to help you live longer and healthier life.`,
 				date: new Date(),
 				from: 'bot',
 				sent: 1,
 				id: undefined,
 			})
-			setCrutchMessage()
 		}
-	}, [isDataDigitized])
+
+		if (isDataDigitized && !crutchMessage) {
+			setTimeout(() => {
+				recordMessage({
+					message:
+						'На основе загруженных Вами медицинских данных выявлен малый риск развития инсульта и болезни Альцгеймера.\n\n' +
+						'Для того, чтобы снизать риски - Вам необходимо чаще питаться овощами и фруктами, а так же регулярно выполнять физические' +
+						'упражнения.\n\nПеречислите, пожалуйста овощи и фрукты, которые Вы употребляли за сегодняшний день?',
+					date: new Date(),
+					from: 'bot',
+					sent: 1,
+					id: undefined,
+				})
+				setCrutchMessage()
+			}, 500)
+		}
+	}, [])
 
 	const onButtonClickHandler = (message: string) => {
 		if (message.length > 0) {
 			sendMessage(message)
 		} else {
-			alert('введите сообщение')
+			alert('Text a message')
 		}
 	}
 

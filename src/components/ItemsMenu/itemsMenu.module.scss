@@ -16,9 +16,13 @@
 		border: 1px solid #0672A2;
 		border-radius: 12px;
 		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 
 
 		.stressData {
+			width: 100%;
 			position: relative;
 			z-index: 10;
 			cursor: pointer;

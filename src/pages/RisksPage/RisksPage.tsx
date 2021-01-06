@@ -132,7 +132,7 @@ const RisksPage = ({
 
 	return (
 		<div className={styles.main}>
-			<div className={styles.pageName}>Мои Риски</div>
+			<div className={styles.pageName}>My Risks</div>
 
 			<div className={styles.searchBox}>
 				<div className={styles.inputGroup}>
@@ -141,7 +141,7 @@ const RisksPage = ({
 						value={searchPhrase}
 						onChange={(e) => setSearchPhrase(e.target.value)}
 						type="search"
-						placeholder="Введите наименование анализа"
+						placeholder="Enter a name for the analysis"
 						onClick={() => {
 							setOpenMenuList(true)
 						}}
@@ -157,7 +157,7 @@ const RisksPage = ({
 							setOpenMenuList(false)
 						}}
 					>
-						{tempActive.length > 0 ? 'Изменить' : 'Вернуться'}
+						{tempActive.length > 0 ? 'Change' : 'Back'}
 					</SmallCustomButton>
 				) : (
 					<SmallCustomButton
@@ -168,7 +168,7 @@ const RisksPage = ({
 							setOpenMenuList(true)
 						}}
 					>
-						Список
+						List
 					</SmallCustomButton>
 				)}
 			</div>
@@ -180,6 +180,7 @@ const RisksPage = ({
 							.filter((i: any) => i.isActive === !openMenuList)
 							.map((item: any) => (
 								<InfoEntity
+									key={`${item.name}_${item.percent}`}
 									name={item.name}
 									percent={item.percent}
 									imageAddress={item.image}
@@ -200,6 +201,7 @@ const RisksPage = ({
 									)
 									.map((item: any) => (
 										<OptionEntity
+											key={`${item.name}_1`}
 											name={item.name}
 											isActive={item.isActive}
 											imageAddress={item.image}
@@ -211,8 +213,9 @@ const RisksPage = ({
 							</>
 						) : (
 							<>
-								{list.map((item: any) => (
+								{list.map((item: any, index: number) => (
 									<OptionEntity
+										key={`${item.name}_${index}`}
 										name={item.name}
 										isActive={item.isActive}
 										imageAddress={item.image}

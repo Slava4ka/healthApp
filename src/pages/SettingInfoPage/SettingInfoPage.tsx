@@ -22,15 +22,13 @@ const SettingInfoPage = ({ goBack }: ISettingInfoPage) => {
 			<Grid container spacing={3} style={{ height: '100%' }}>
 				<Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
 					<div className={styles.body} style={{ padding: '24px' }}>
-						<Typography variant="h5">
-							Контроль количества часов сна
-						</Typography>
+						<Typography variant="h5">Sleep monitoring</Typography>
 						<Typography
 							variant="subtitle1"
 							style={{ marginTop: '8px' }}
 						>
-							Данный индикатор отслеживает количество часов сна
-							Пользователя в течении 24 часов.
+							This indicator tracks the number of hours of sleep
+							of the User within 24 hours.
 						</Typography>
 					</div>
 				</Grid>

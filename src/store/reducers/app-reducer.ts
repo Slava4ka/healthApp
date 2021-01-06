@@ -7,10 +7,10 @@ const initialState: IAppReducer = {
 	haveUserData: false,
 	haveStressData: false,
 	menuData: {
-		activityPercent: { name: 'Физическая активность', value: 0 },
-		dataPercent: { name: 'Объем данных', value: 4 },
-		nutritionPercent: { name: 'Правильное питание', value: 0 },
-		stressPercent: { name: 'Cтрессоустойчивость', value: 0 },
+		activityPercent: { name: 'Physical Activity', value: 0 },
+		dataPercent: { name: 'Data Volume', value: 4 },
+		nutritionPercent: { name: 'Healthy Nutrition', value: 0 },
+		stressPercent: { name: 'Stress tolerance', value: 0 },
 	},
 	newMenuData: true,
 

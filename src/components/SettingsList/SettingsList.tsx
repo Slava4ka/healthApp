@@ -16,14 +16,14 @@ interface ISetting {
 }
 
 const settingsList: ISetting[] = [
-	{ id: 0, name: 'Контроль количества часов сна', value: false },
-	{ id: 1, name: 'Контроль пульса', value: false },
-	{ id: 2, name: 'Контроль артериального давления', value: false },
-	{ id: 3, name: 'Контроль температуры тела', value: false },
-	{ id: 5, name: 'Контроль рациона питания', value: false },
-	{ id: 6, name: 'Еженедельный контроль веса', value: false },
-	{ id: 7, name: 'Контроль физических упражнений', value: false },
-	{ id: 8, name: 'Контроль эмоционального состояния', value: false },
+	{ id: 0, name: 'Sleep monitoring', value: false },
+	{ id: 1, name: 'Heart rate control', value: false },
+	{ id: 2, name: 'Blood pressure control', value: false },
+	{ id: 3, name: 'Body temperature control', value: false },
+	{ id: 5, name: 'Diet control', value: false },
+	{ id: 6, name: 'Weight control weekly', value: false },
+	{ id: 7, name: 'Exercise control', value: false },
+	{ id: 8, name: 'Emotional control', value: false },
 ]
 
 const useStyles = makeStyles(() => ({

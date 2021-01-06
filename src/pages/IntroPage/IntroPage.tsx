@@ -17,15 +17,14 @@ const IntroPage = ({ push }: IIntroPage) => {
 		<div className={style.introPage}>
 			<div className={style.header}>
 				<div className={style.logo}>
-					<img src="logo1.png" alt="logo of mday" />
+					<img src="C2.png" alt="logo of mday" />
 				</div>
 				<div className={style.buttonGroup}>
-					<Button color="primary">Врачам</Button>
 					<Button
 						color="primary"
 						onClick={() => push('/registration')}
 					>
-						Войти
+						Log in
 					</Button>
 					<CustomButton
 						variant="contained"
@@ -33,7 +32,7 @@ const IntroPage = ({ push }: IIntroPage) => {
 						disableRipple
 						onClick={() => push('/registration')}
 					>
-						Регистрация
+						Sing up
 					</CustomButton>
 				</div>
 			</div>
@@ -43,9 +42,9 @@ const IntroPage = ({ push }: IIntroPage) => {
 			</div>
 			<div className={style.label}>
 				<h1 style={{ marginTop: 0, marginBottom: 0 }}>
-					Весь опыт мирового
+					All experience of world healthcare
 				</h1>
-				<h1 style={{ marginTop: 0 }}>здравоохранения в Ваших руках</h1>
+				<h1 style={{ marginTop: 0 }}>in your hands</h1>
 			</div>
 			<div className={style.usersActionPanel}>
 				<BigCustomButton
@@ -54,11 +53,11 @@ const IntroPage = ({ push }: IIntroPage) => {
 					disableRipple
 					onClick={() => push('/registration')}
 				>
-					Регистрация
+					Sing up
 				</BigCustomButton>
 				<span className={style.signIn}>
-					{`Уже зарегистрированы? `}
-					<NavLink to="/registration">Войти</NavLink>
+					{`Already have an account? `}
+					<NavLink to="/registration">Log in</NavLink>
 				</span>
 			</div>
 		</div>
