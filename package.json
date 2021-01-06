@@ -20,7 +20,7 @@
     "@types/react-router-dom": "^5.1.5",
     "@types/recharts": "^1.8.10",
     "@types/uuid": "^8.3.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "clsx": "^1.1.1",
     "connected-react-router": "^6.8.0",
     "history": "^4.10.1",
